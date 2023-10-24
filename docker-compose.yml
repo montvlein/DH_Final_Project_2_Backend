@@ -1,0 +1,39 @@
+version: '3.3'
+services:
+#  config-service:
+#    build: config-server
+#    ports:
+#      - "8888:8888"
+  mysql:
+    image: mysql:5.7
+    restart: always
+    environment:
+      MYSQL_DATABASE: 'event-db'
+      MYSQL_USER: 'event-user'
+      MYSQL_PASSWORD: 'event-password'
+      MYSQL_ROOT_PASSWORD: 'password'
+    ports:
+      # <Port exposed> : < MySQL Port running inside container>
+      - '3333:3306'
+    expose:
+      # Opens port 3306 on the container
+      - '3306'
+
+#  zipkin:
+#    image: openzipkin/zipkin
+#    environment:
+#      STORAGE_TYPE: mem
+#    ports:
+#      - "9411:9411"
+#    expose:
+#      - 9411
+#
+#  rabbitmq:
+#    image: rabbitmq:3-management
+#    hostname: localhost
+#    ports:
+#      - "5672:5672"
+#      - "15672:15672"
+#    expose:
+#      - 15672
+#      - 5672
