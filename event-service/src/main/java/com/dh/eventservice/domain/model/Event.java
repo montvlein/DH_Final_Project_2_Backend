@@ -21,5 +21,5 @@ public class Event {
 	@ManyToOne( fetch = FetchType.LAZY)
 	@JoinColumn(name = "idCategory",nullable = false)
 	@JsonIgnoreProperties(value = {"applications", "hibernateLazyInitializer"})
-	private String category;
+	private Category category;
 }

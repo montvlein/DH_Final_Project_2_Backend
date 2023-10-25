@@ -17,7 +17,6 @@ import java.util.Set;
 public class CategoryController {
 
     @Autowired
-    //@Qualifier("CategoriaService")
     private CategoryService categoryService;
 
     //Registrar Categoria
