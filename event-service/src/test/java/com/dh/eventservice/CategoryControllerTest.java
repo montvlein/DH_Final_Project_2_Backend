@@ -34,13 +34,13 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 
         @Test
         public void testAddCategoria() {
-            Category categoriaDTO = new Category();
+            CategoryDto categoryDto = new CategoryDto();
 
             // Mock the service's behavior
             CategoryDto savedCategory= null;
-            Mockito.when(categoryService.save(categoriaDTO)).thenReturn(savedCategory);
+            Mockito.when(categoryService.save(categoryDto)).thenReturn(savedCategory);
 
-            ResponseEntity<?> response = categoryController.addCategoria(categoriaDTO);
+            ResponseEntity<?> response = categoryController.addCategoria(categoryDto);
             assertEquals(HttpStatus.OK, response.getStatusCode());
         }
 

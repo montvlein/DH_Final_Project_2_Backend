@@ -28,79 +28,59 @@ public class CategoryServiceImpl implements CategoryService {
         this.categoryRepository = categoryRepository;
     }
 
+    @Autowired
+    ObjectMapper mapper;
+
     @Override
-    public List<Category> getListByCategory(String category) {
-        return null;
+    public List<Category> getListByDescription(String description) {
+        return categoryRepository.findAllByDescription(description);
     }
 
     @Override
     public Set<CategoryDto> getAllCategories() {
-        return null;
+        List<Category> categories=categoryRepository.findAll();
+        Set<CategoryDto> categoryDto= new HashSet<>();
+        for (Category c: categories) {
+            categoryDto.add(mapper.convertValue(c,CategoryDto.class));
+        }
+        return categoryDto;
+
     }
 
     @Override
-    public CategoryDto save(Category category) {
-        return null;
-    }
-
-    @Override
-    public CategoryDto delete(Integer idCategory) {
-        return null;
-    }
-
-    @Override
-    public CategoryDto findById(Integer idCategory) {
-        return null;
-    }
-
-    @Override
-    public ResponseEntity update(CategoryDto categoryDto) {
-        return null;
-    }
-/*
-    @Autowired
-    ObjectMapper mapper;
-
-    public void save(CategoryDto categoryDto){
+    public CategoryDto save(CategoryDto categoryDto) {
         Category category=mapper.convertValue(categoryDto, Category.class);
         categoryRepository.save(category);
         logger.info("Se guardo la categoria "+ categoryDto );
+        return categoryDto;
     }
 
+    @Override
+    public void delete(Integer idCategory) throws ResourceNotFoundExceptions{
+        if (categoryRepository.findById((idCategory))==null){
+            logger.error("No existe el elmento a eliminar");
+            throw  new ResourceNotFoundExceptions("No existe el elmento a eliminar");
+        }else {
+            categoryRepository.deleteById(idCategory);
+            logger.info("Se elimino correctamente la categoria con id: "+ idCategory);
+        }
+    }
 
-    public CategoryDto find(Integer id) throws ResourceNotFoundExceptions {
-        Optional<Category> category= categoryRepository.findById((id));
+    @Override
+    public CategoryDto findById(Integer idCategory) throws ResourceNotFoundExceptions {
+        Optional<Category> category= categoryRepository.findById((idCategory));
         CategoryDto categoryDto= null;
         if (category.isPresent()) {
             categoryDto = mapper.convertValue(category, CategoryDto.class);
         }else{
-            throw new ResourceNotFoundExceptions("No existe la categoria buscada con id "+ id);
+            throw new ResourceNotFoundExceptions("No existe la categoria buscada con id "+ idCategory);
         }
         return categoryDto;
     }
 
-    public Set<CategoryDto> findAll() {
-        List<Category> categorias=categoryRepository.findAll();
-        Set<CategoryDto> categoriaDTO= new HashSet<>();
-        for (Category c: categorias) {
-            categoriaDTO.add(mapper.convertValue(c,CategoryDto.class));
-        }
-        return categoriaDTO;
+    @Override
+    public ResponseEntity update(CategoryDto categoryDto) {
+
+        return null;
     }
-
-
-    public void delete(Integer id) throws ResourceNotFoundExceptions{
-        if (categoryRepository.findById((id))==null){
-            throw  new ResourceNotFoundExceptions("No existe el elmento a eliminar");
-        }else {
-            categoryRepository.deleteById(id);
-            logger.info("Se elimino correctamente la categoria con id: "+ id);
-        }
-    }
-
-    public void actualizar(CategoryDto categoryDto) {
-        Category categoria=mapper.convertValue(categoryDto, Category.class);
-        categoryRepository.save(categoria);
-        logger.info("Se modifico la categoria " + categoryDto);
-    }*/
 }

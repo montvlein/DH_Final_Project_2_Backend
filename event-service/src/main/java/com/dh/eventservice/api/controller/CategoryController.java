@@ -4,12 +4,13 @@ import com.dh.eventservice.api.Exceptions.ResourceNotFoundExceptions;
 import com.dh.eventservice.api.service.CategoryService;
 import com.dh.eventservice.domain.DTO.CategoryDto;
 import com.dh.eventservice.domain.model.Category;
-import org.hibernate.mapping.List;
+import com.dh.eventservice.domain.model.Event;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Set;
 
 @RestController
@@ -21,17 +22,23 @@ public class CategoryController {
 
     //Registrar Categoria
     @PostMapping
-    public ResponseEntity<?> addCategoria(@RequestBody Category categoriaDTO) {
-        categoryService.save(categoriaDTO);
-        return ResponseEntity.ok(HttpStatus.OK);
+    public ResponseEntity<?> addCategory(@RequestBody CategoryDto categoryDTO) {
+        categoryService.save(categoryDTO);
+        return ResponseEntity.ok(HttpStatus.CREATED);
     }
 
     //Buscar por ID
 
     @GetMapping("/{id}")
-    public CategoryDto findCategory(@PathVariable Integer id) throws ResourceNotFoundExceptions{
+    public CategoryDto findCategoryId(@PathVariable Integer id) throws ResourceNotFoundExceptions{
         return categoryService.findById(id);
     }
+
+    //lista categorias por descreipcion
+    /*@GetMapping("/{description}")
+    public ResponseEntity<List<Category>> getCategoriesByDescription(@PathVariable String description) {
+        return CategoryService.getListByDescription(description);
+    }*/
 
     //Listar todas las categorias
     @GetMapping

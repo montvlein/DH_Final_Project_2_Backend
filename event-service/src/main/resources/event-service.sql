@@ -1,5 +1,5 @@
-INSERT INTO categories( description, url_image) VALUES('Bad Religion','https://www.tuentrada.com/images/64ef2a94a573c.webp');
-INSERT INTO categories( description, url_image) VALUES( 'Bad Religion','https://www.tuentrada.com/images/64ef2a94a573c.webp');
+INSERT INTO categories( description, url_image) VALUES('Concierto','https://www.tuentrada.com/images/64ef2a94a573c.webp');
+INSERT INTO categories( description, url_image) VALUES( 'Teatro','https://www.tuentrada.com/images/64ef2a94a573c.webp');
 
 
 INSERT INTO events(date, description, price, capacity, image_url, name, venue, id_category) VALUES('28-11-2023', 'Bad Religion', 30000.0, 5000, 'https://www.tuentrada.com/images/64ef2a94a573c.webp', 'Bad Religion', 'Ferrocarril Oeste', 1);
