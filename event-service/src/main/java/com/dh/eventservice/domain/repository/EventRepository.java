@@ -11,4 +11,5 @@ public interface EventRepository extends JpaRepository<Event, Integer> {
 
 	List<Event> findAllByCategory(String category);
 
+	List<Event> findAllByVenue(String venue);
 }

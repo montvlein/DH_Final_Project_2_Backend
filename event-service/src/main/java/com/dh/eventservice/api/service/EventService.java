@@ -1,15 +1,18 @@
 package com.dh.eventservice.api.service;
 
+import com.dh.eventservice.domain.DAO.EventDTO;
 import com.dh.eventservice.domain.model.Event;
 
 import java.util.List;
 
 public interface EventService {
 
-	List<Event> getListByCategory(String category);
+	List<EventDTO> getListByCategory(String category);
 
-    List<Event> getAllEvents();
+    List<EventDTO> getListByVenue(String venue);
 
-    Event save(Event event);
+    List<EventDTO> getAllEvents();
+
+    EventDTO save(EventDTO eventDto);
 
 }
