@@ -19,7 +19,7 @@ public class Event {
 	private String name;
 	private String venue;
 	@ManyToOne( fetch = FetchType.LAZY)
-	@JoinColumn(name = "idCategory",nullable = false)
+	@JoinColumn(name = "id_category",nullable = false)
 	@JsonIgnoreProperties(value = {"applications", "hibernateLazyInitializer"})
 	private Category category;
 }
