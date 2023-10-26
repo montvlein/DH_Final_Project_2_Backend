@@ -1,0 +1,28 @@
+#--------------- Configuration Docker ----------------------#
+spring:
+  security:
+    oauth2:
+      resource-server:
+        jwt:
+          jwk-set-uri: http://${KEYCLOAK_HOST}:8080/realms
+      client:
+        provider:
+          keycloak:
+            authorization-uri: http://${KEYCLOAK_FRONT_HOST}:8080/realms
+            token-uri: http://${KEYCLOAK_HOST}:8080/realms
+            user-info-uri: http://${KEYCLOAK_HOST}:8080/realms
+            jwk-set-uri: http://${KEYCLOAK_HOST}:8080/realms
+        registration:
+          gateway:
+            redirectUri: http://${KEYCLOAK_FRONT_HOST}:8081/login/oauth2/code/keycloak
+# Eureka configuration
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://eureka:8761/eureka
+
+## Logging configuration
+logging:
+  level:
+    org.springframework.cloud.gateway: INFO
+    reactor.netty.http.client: INFO
