@@ -1,7 +1,10 @@
 package com.dh.eventservice.domain.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import javax.persistence.*;
 
 @Data
@@ -18,7 +21,7 @@ public class Event {
 	private String imageUrl;
 	private String name;
 	private String venue;
-	@ManyToOne( fetch = FetchType.LAZY)
+	@ManyToOne( fetch = FetchType.EAGER)
 	@JoinColumn(name = "id_category",nullable = false)
 	@JsonIgnoreProperties(value = {"applications", "hibernateLazyInitializer"})
 	private Category category;
