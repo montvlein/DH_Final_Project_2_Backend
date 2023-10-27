@@ -1,5 +1,6 @@
 package com.dh.eventservice.domain.repository;
 
+
 import com.dh.eventservice.domain.model.Event;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
@@ -11,4 +12,5 @@ public interface EventRepository extends JpaRepository<Event, Integer> {
 
 	List<Event> findAllByCategory(String category);
 
+	List<Event> findAllByVenue(String venue);
 }
