@@ -8,15 +8,18 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="event-service" />
+        <module name="event-service (1)" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="event-service" target="17" />
+      <module name="event-service (1)" target="18" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="event-service" options="-parameters" />
+      <module name="event-service (1)" options="-parameters" />
     </option>
   </component>
 </project>

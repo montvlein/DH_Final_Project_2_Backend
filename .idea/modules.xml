@@ -3,7 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/DH_Final_Project_2_Backend.iml" filepath="$PROJECT_DIR$/.idea/DH_Final_Project_2_Backend.iml" />
-      <module fileurl="file://$PROJECT_DIR$/event-service/event-service.iml" filepath="$PROJECT_DIR$/event-service/event-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/subscription-main/subscription-service/event-service.iml" filepath="$PROJECT_DIR$/subscription-main/subscription-service/event-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/event-service/event-service (1).iml" filepath="$PROJECT_DIR$/event-service/event-service (1).iml" />
     </modules>
   </component>
 </project>
