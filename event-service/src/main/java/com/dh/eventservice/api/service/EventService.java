@@ -1,12 +1,18 @@
 package com.dh.eventservice.api.service;
 
+import com.dh.eventservice.api.Exceptions.ResourceNotFoundExceptions;
+import com.dh.eventservice.domain.DTO.CategoryDto;
 import com.dh.eventservice.domain.DTO.EventDTO;
+import com.dh.eventservice.domain.model.Event;
+import org.springframework.http.ResponseEntity;
 
 import java.util.List;
 
 public interface EventService {
 
-	List<EventDTO> getListByCategory(String category);
+	List<Event> getListByCategory(String category);
+
+    List<EventDTO> getListByCategoryId(Integer id);
 
     List<EventDTO> getListByVenue(String venue);
 
@@ -14,4 +20,9 @@ public interface EventService {
 
     EventDTO save(EventDTO eventDto);
 
+    EventDTO findById(Integer id) throws ResourceNotFoundExceptions;
+
+    void delete(Integer id) throws ResourceNotFoundExceptions;
+
+    ResponseEntity update(EventDTO eventDTO);
 }

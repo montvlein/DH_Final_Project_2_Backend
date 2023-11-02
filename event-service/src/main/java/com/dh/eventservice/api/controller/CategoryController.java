@@ -35,10 +35,10 @@ public class CategoryController {
     }
 
     //lista categorias por descreipcion
-    /*@GetMapping("/{description}")
-    public ResponseEntity<List<Category>> getCategoriesByDescription(@PathVariable String description) {
-        return CategoryService.getListByDescription(description);
-    }*/
+    @GetMapping("/desc/{description}")
+    public Category getCategoryByDescription(@PathVariable String description) {
+        return categoryService.getCategoryByDescription(description);
+    }
 
     //Listar todas las categorias
     @GetMapping

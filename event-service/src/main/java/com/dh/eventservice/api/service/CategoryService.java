@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Set;
 public interface CategoryService {
 
-    List<Category> getListByDescription(String description);
+    Category getCategoryByDescription(String description);
 
     Set<CategoryDto> getAllCategories();
 
