@@ -1,0 +1,52 @@
+server:
+  port: ${PORT:${SERVER_PORT:8080}}
+
+spring:
+  application:
+    name: event-service
+  datasource:
+    driverClassName: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3333/event-db
+    username: event-user
+    password: event-password
+  jpa:
+    hibernate.ddl-auto: create-drop
+    generate-ddl: true
+    show-sql: true
+    properties:
+      hibernate:
+        hbm2ddl:
+          import_files: event-service.sql
+#  zipkin:
+#    base-url: http://localhost:9411/
+#    enabled: true
+#  rabbitmq:
+#    username: guest
+#    password: guest
+#    host: localhost
+#    port: 5672
+
+#info:
+#  application:
+#    name: ${spring.application.name}
+#    description: Movie Service for Movies Application
+#    version: 1.0.0
+
+#management:
+#  endpoints:
+#    web:
+#      exposure:
+#        include: info, health
+#  info:
+#    env:
+#      enabled: true
+
+#eureka:
+#  instance:
+#    hostname: localhost
+#    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+#  client:
+#    registerWithEureka: true
+#    fetchRegistry: true
+#    serviceUrl:
+#      defaultZone: http://localhost:8761/eureka/

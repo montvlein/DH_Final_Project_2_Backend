@@ -1,0 +1,17 @@
+C:\Users\nico\Desktop\Main1\DH_Final_Project_2_Backend\event-service\src\main\java\com\dh\eventservice\api\service\EventService.java
+C:\Users\nico\Desktop\Main1\DH_Final_Project_2_Backend\event-service\src\main\java\com\dh\eventservice\domain\model\Category.java
+C:\Users\nico\Desktop\Main1\DH_Final_Project_2_Backend\event-service\src\main\java\com\dh\eventservice\api\service\CategoryService.java
+C:\Users\nico\Desktop\Main1\DH_Final_Project_2_Backend\event-service\src\main\java\com\dh\eventservice\api\Exceptions\ResourceNotFoundExceptions.java
+C:\Users\nico\Desktop\Main1\DH_Final_Project_2_Backend\event-service\src\main\java\com\dh\eventservice\api\config\ModelMapperConfig.java
+C:\Users\nico\Desktop\Main1\DH_Final_Project_2_Backend\event-service\src\main\java\com\dh\eventservice\api\Exceptions\BadRequestException.java
+C:\Users\nico\Desktop\Main1\DH_Final_Project_2_Backend\event-service\src\main\java\com\dh\eventservice\api\controller\EventController.java
+C:\Users\nico\Desktop\Main1\DH_Final_Project_2_Backend\event-service\src\main\java\com\dh\eventservice\domain\DTO\CategoryDto.java
+C:\Users\nico\Desktop\Main1\DH_Final_Project_2_Backend\event-service\src\main\java\com\dh\eventservice\domain\model\Event.java
+C:\Users\nico\Desktop\Main1\DH_Final_Project_2_Backend\event-service\src\main\java\com\dh\eventservice\api\service\impl\EventServiceImpl.java
+C:\Users\nico\Desktop\Main1\DH_Final_Project_2_Backend\event-service\src\main\java\com\dh\eventservice\EventServiceApplication.java
+C:\Users\nico\Desktop\Main1\DH_Final_Project_2_Backend\event-service\src\main\java\com\dh\eventservice\domain\repository\EventRepository.java
+C:\Users\nico\Desktop\Main1\DH_Final_Project_2_Backend\event-service\src\main\java\com\dh\eventservice\api\service\impl\CategoryServiceImpl.java
+C:\Users\nico\Desktop\Main1\DH_Final_Project_2_Backend\event-service\src\main\java\com\dh\eventservice\api\Exceptions\GlobalResourceNotFoundExceptionsHandler.java
+C:\Users\nico\Desktop\Main1\DH_Final_Project_2_Backend\event-service\src\main\java\com\dh\eventservice\domain\DTO\EventDTO.java
+C:\Users\nico\Desktop\Main1\DH_Final_Project_2_Backend\event-service\src\main\java\com\dh\eventservice\domain\repository\CategoryRepository.java
+C:\Users\nico\Desktop\Main1\DH_Final_Project_2_Backend\event-service\src\main\java\com\dh\eventservice\api\controller\CategoryController.java
