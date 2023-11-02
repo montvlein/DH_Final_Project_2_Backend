@@ -5,19 +5,20 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.6.5</version>
+		<version>2.7.4</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.dh</groupId>
-	<artifactId>event-service</artifactId>
-	<version>1.0.0-SNAPSHOT</version>
-	<name>Event Service</name>
-	<description>Event Service for GoldenTicket</description>
+	<groupId>com.digitalAlpha</groupId>
+	<artifactId>gateway</artifactId>
+	<version>0.0.1</version>
+	<name>Gateway</name>
+	<description>Gateway for Digital Alpha</description>
 	<properties>
 		<java.version>17</java.version>
-		<spring-cloud.version>2021.0.1</spring-cloud.version>
+		<spring-cloud.version>2021.0.4</spring-cloud.version>
 	</properties>
 	<dependencies>
+<<<<<<< HEAD:event-service/pom.xml
 			<!-- Dependencia de JUnit para pruebas unitarias -->
 			<dependency>
 				<groupId>junit</groupId>
@@ -38,23 +39,37 @@
 <!--			<groupId>org.springframework.boot</groupId>-->
 <!--			<artifactId>spring-boot-starter-actuator</artifactId>-->
 <!--		</dependency>-->
+=======
+>>>>>>> origin/MKT-17-Api_Gateway:gateway/pom.xml
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-data-jpa</artifactId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web</artifactId>
+			<artifactId>spring-boot-starter-oauth2-client</artifactId>
 		</dependency>
-<!--		<dependency>-->
-<!--			<groupId>org.springframework.cloud</groupId>-->
-<!--			<artifactId>spring-cloud-starter-config</artifactId>-->
-<!--		</dependency>-->
-<!--		<dependency>-->
-<!--			<groupId>org.springframework.cloud</groupId>-->
-<!--			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>-->
-<!--		</dependency>-->
-
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-oauth2-resource-server</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>io.projectreactor</groupId>
+			<artifactId>reactor-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-gateway</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
@@ -62,6 +77,7 @@
 			<optional>true</optional>
 		</dependency>
 		<dependency>
+<<<<<<< HEAD:event-service/pom.xml
 			<groupId>org.modelmapper</groupId>
 			<artifactId>modelmapper</artifactId>
 			<version>2.4.4</version>
@@ -72,6 +88,8 @@
 			<scope>runtime</scope>
 		</dependency>
 		<dependency>
+=======
+>>>>>>> origin/MKT-17-Api_Gateway:gateway/pom.xml
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
 			<optional>true</optional>
@@ -81,6 +99,7 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+<<<<<<< HEAD:event-service/pom.xml
         <dependency>
             <groupId>log4j</groupId>
             <artifactId>log4j</artifactId>
@@ -108,6 +127,16 @@
 <!--			<artifactId>spring-boot-starter-amqp</artifactId>-->
 <!--		</dependency>-->
 
+=======
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-oauth2-jose</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-circuitbreaker-reactor-resilience4j</artifactId>
+		</dependency>
+>>>>>>> origin/MKT-17-Api_Gateway:gateway/pom.xml
 	</dependencies>
 	<dependencyManagement>
 		<dependencies>
