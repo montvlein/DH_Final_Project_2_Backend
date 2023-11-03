@@ -1,8 +1,11 @@
 package com.dh.eventservice.api.controller;
 
+import com.dh.eventservice.api.Exceptions.ResourceNotFoundExceptions;
 import com.dh.eventservice.api.service.EventService;
 import com.dh.eventservice.domain.DTO.EventDTO;
+import com.dh.eventservice.domain.model.Event;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
@@ -14,12 +17,17 @@ public class EventController {
 	@Autowired
 	private EventService eventService;
 
-	@GetMapping("/{category}")
-	public ResponseEntity<List<EventDTO>> getEventByCategory(@PathVariable String category) {
+	@GetMapping("/categoryType/{category}")
+	public ResponseEntity<List<Event>> getEventByCategory(@PathVariable String category) {
 		return ResponseEntity.ok().body(eventService.getListByCategory(category));
 	}
 
-	@GetMapping("/{venue}")
+	@GetMapping("/category/{id}")
+	public ResponseEntity<List<EventDTO>> getEventByCategoryId(@PathVariable Integer id) {
+		return ResponseEntity.ok().body(eventService.getListByCategoryId(id));
+	}
+
+	@GetMapping("/venueType/{venue}")
 	public ResponseEntity<List<EventDTO>> getEventByVenue(@PathVariable String venue) {
 		return ResponseEntity.ok().body(eventService.getListByVenue(venue));
 	}
@@ -32,5 +40,11 @@ public class EventController {
 	@PostMapping
 	public ResponseEntity<EventDTO> saveEvent(@RequestBody EventDTO eventDto) {
 		return ResponseEntity.ok().body(eventService.save(eventDto));
+	}
+
+	@DeleteMapping("/{id}")
+	public ResponseEntity<HttpStatus> deleteEvent(@PathVariable Integer id) throws ResourceNotFoundExceptions {
+		eventService.delete(id);
+		return ResponseEntity.ok(HttpStatus.OK);
 	}
 }

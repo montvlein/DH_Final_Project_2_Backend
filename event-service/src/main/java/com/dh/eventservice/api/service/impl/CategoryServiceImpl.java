@@ -1,6 +1,7 @@
 package com.dh.eventservice.api.service.impl;
 
 import com.dh.eventservice.api.Exceptions.ResourceNotFoundExceptions;
+import com.dh.eventservice.api.config.ModelMapperConfig;
 import com.dh.eventservice.api.service.CategoryService;
 import com.dh.eventservice.domain.DTO.CategoryDto;
 import com.dh.eventservice.domain.model.Category;
@@ -27,13 +28,15 @@ public class CategoryServiceImpl implements CategoryService {
     public CategoryServiceImpl(CategoryRepository categoryRepository) {
         this.categoryRepository = categoryRepository;
     }
-
+    @Autowired
+    private ModelMapperConfig mapperM;
     @Autowired
     ObjectMapper mapper;
 
     @Override
-    public List<Category> getListByDescription(String description) {
-        return categoryRepository.findAllByDescription(description);
+    public Category getCategoryByDescription(String description) {
+        Category category = categoryRepository.findAllByDescription(description);
+        return mapper.convertValue(category, Category.class);
     }
 
     @Override

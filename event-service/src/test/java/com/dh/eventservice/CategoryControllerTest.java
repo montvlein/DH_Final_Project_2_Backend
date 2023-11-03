@@ -40,7 +40,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
             CategoryDto savedCategory= null;
             Mockito.when(categoryService.save(categoryDto)).thenReturn(savedCategory);
 
-            ResponseEntity<?> response = categoryController.addCategoria(categoryDto);
+            ResponseEntity<?> response = categoryController.addCategory(categoryDto);
             assertEquals(HttpStatus.OK, response.getStatusCode());
         }
 
@@ -53,7 +53,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
             // Mock the service's behavior
             Mockito.when(categoryService.findById(categoryId)).thenReturn(categoryDto);
 
-            CategoryDto response = categoryController.findCategory(categoryId);
+            CategoryDto response = categoryController.findCategoryId(categoryId);
 
             // Verificar que el objeto devuelto es igual al objeto categoryDto
             assertEquals(categoryDto, response);
