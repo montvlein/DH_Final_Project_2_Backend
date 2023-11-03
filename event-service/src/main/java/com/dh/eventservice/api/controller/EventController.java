@@ -2,6 +2,7 @@ package com.dh.eventservice.api.controller;
 
 import com.dh.eventservice.api.Exceptions.ResourceNotFoundExceptions;
 import com.dh.eventservice.api.service.EventService;
+import com.dh.eventservice.domain.DTO.CategoryDto;
 import com.dh.eventservice.domain.DTO.EventDTO;
 import com.dh.eventservice.domain.model.Event;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +17,12 @@ public class EventController {
 
 	@Autowired
 	private EventService eventService;
+
+
+	@GetMapping("/{id}")
+	public EventDTO findEventById(@PathVariable Integer id) throws ResourceNotFoundExceptions{
+		return eventService.findById(id);
+	}
 
 	@GetMapping("/categoryType/{category}")
 	public ResponseEntity<List<Event>> getEventByCategory(@PathVariable String category) {
