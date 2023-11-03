@@ -52,6 +52,16 @@ public class EventServiceImpl implements EventService {
 	}
 
 	@Override
+	public List<EventDTO> getListByCountry(String country) {
+		return null;
+	}
+
+	@Override
+	public List<EventDTO> getListByCountryAndCity(String country, String city) {
+		return null;
+	}
+
+	@Override
 	public List<EventDTO> getListByCategoryId(Integer id) {
 		List<Event> events = eventRepository.findAllByCategoryId(id);
 

@@ -21,10 +21,10 @@ public class Event {
 	//@Temporal(TemporalType.DATE)
 	private String date;
 	private String description;
-	private Float price;
-	private Integer capacity;
-	private String imageUrl;
 	private String name;
+	private String miniImageUrl;
+	private String bannerImageUrl;
+	private String detailImageUrl;
 	private String venue;
 	@ManyToOne( fetch = FetchType.EAGER)
 	@JoinColumn(name = "id_category",nullable = false)

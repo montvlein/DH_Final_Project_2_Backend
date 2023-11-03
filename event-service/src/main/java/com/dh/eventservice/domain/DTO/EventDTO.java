@@ -13,10 +13,10 @@ public class EventDTO {
     private Integer id;
     private String date;
     private String description;
-    private Float price;
-    private Integer capacity;
-    private String imageUrl;
     private String name;
+    private String miniImageUrl;
+    private String bannerImageUrl;
+    private String detailImageUrl;
     private String venue;
     private Category category;
 }
