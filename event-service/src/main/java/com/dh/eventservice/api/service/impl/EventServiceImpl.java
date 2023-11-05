@@ -128,7 +128,52 @@ public class EventServiceImpl implements EventService {
 
 
 	@Override
-	public ResponseEntity update(EventDTO eventDTO) {
-		return null;
+	public String update(EventDTO eventDTO) throws ResourceNotFoundExceptions {
+		Optional<Event> event = eventRepository.findById(eventDTO.getId());
+		String response;
+		if (event.isPresent()){
+			eventRepository.save(this.updateDb(event.get(), eventDTO));
+			mapper.getModelMapper().map(eventDTO, EventDTO.class);
+			response = "Successful update";
+		} else {
+			throw new ResourceNotFoundExceptions("Event could not be updated");
+		}
+		return response;
+	}
+
+	private Event updateDb(Event event, EventDTO eventDTO){
+		if(eventDTO.getDate() != null) {
+			event.setDate(eventDTO.getDate());
+		}
+
+		if(eventDTO.getDescription() != null){
+			event.setDescription(eventDTO.getDescription());
+		}
+
+		if(eventDTO.getName() != null){
+			event.setName(eventDTO.getName());
+		}
+
+		if(eventDTO.getMiniImageUrl() != null){
+			event.setMiniImageUrl(eventDTO.getMiniImageUrl());
+		}
+
+		if(eventDTO.getBannerImageUrl() != null){
+			event.setBannerImageUrl(eventDTO.getBannerImageUrl());
+		}
+
+		if(eventDTO.getDetailImageUrl() != null){
+			event.setDetailImageUrl(eventDTO.getDetailImageUrl());
+		}
+
+		if(eventDTO.getVenue() != null){
+			event.setVenue(eventDTO.getVenue());
+		}
+
+		if(eventDTO.getCategory() != null){
+			event.setCategory(mapper.getModelMapper().map(eventDTO.getCategory(), Category.class));
+		}
+
+		return event;
 	}
 }

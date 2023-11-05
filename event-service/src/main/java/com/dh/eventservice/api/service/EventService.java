@@ -19,5 +19,5 @@ public interface EventService {
     EventDTO save(EventDTO eventDto);
     EventDTO findById(Integer id) throws ResourceNotFoundExceptions;
     void delete(Integer id) throws ResourceNotFoundExceptions;
-    ResponseEntity update(EventDTO eventDTO);
+    String update(EventDTO eventDTO) throws ResourceNotFoundExceptions;
 }

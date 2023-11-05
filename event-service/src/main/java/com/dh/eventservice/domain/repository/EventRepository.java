@@ -19,8 +19,8 @@ public interface EventRepository extends JpaRepository<Event, Integer> {
 
 	List<Event> findAllByVenue(String venue);
 
-	List<EventDTO> getListByCountry (String country);
+	/*List<EventDTO> getListByCountry (String country);
 
-	List<EventDTO> getListByCountryAndCity(String country, String city);
+	List<EventDTO> getListByCountryAndCity(String country, String city);*/
 
 }

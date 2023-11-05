@@ -54,4 +54,9 @@ public class EventController {
 		eventService.delete(id);
 		return ResponseEntity.ok(HttpStatus.OK);
 	}
+
+	@PutMapping("/update")
+	public ResponseEntity<String> update(@RequestBody EventDTO eventDTO) throws ResourceNotFoundExceptions{
+		return ResponseEntity.ok(eventService.update(eventDTO));
+	}
 }
