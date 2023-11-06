@@ -109,7 +109,7 @@ public class EventServiceImpl implements EventService {
 			throw  new ResourceNotFoundExceptions("No existe el elmento a eliminar");
 		}else {
 			eventRepository.deleteById(id);
-			logger.info("Se elimino correctamente la categoria con id: "+ id);
+			logger.info("Se elimino correctamente el elemento con id: "+ id);
 		}
 
 	}
@@ -121,7 +121,7 @@ public class EventServiceImpl implements EventService {
 		if (event.isPresent()) {
 			eventDTO = obmapper.convertValue(event, EventDTO.class);
 		}else{
-			throw new ResourceNotFoundExceptions("No existe la categoria buscada con id "+ id);
+			throw new ResourceNotFoundExceptions("No existe el elemento buscado con id "+ id);
 		}
 		return eventDTO;
 	}
@@ -136,7 +136,7 @@ public class EventServiceImpl implements EventService {
 			mapper.getModelMapper().map(eventDTO, EventDTO.class);
 			response = "Successful update";
 		} else {
-			throw new ResourceNotFoundExceptions("Event could not be updated");
+			throw new ResourceNotFoundExceptions("El evento no pudo ser actualizado");
 		}
 		return response;
 	}
