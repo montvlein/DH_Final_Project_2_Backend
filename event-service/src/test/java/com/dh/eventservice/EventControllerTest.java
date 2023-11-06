@@ -22,6 +22,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
+import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 import java.util.*;
 
@@ -38,10 +39,16 @@ public class EventControllerTest {
     @Mock
     private EventService eventService;
 
+
+    @Autowired
+    private MockMvc mockMvc;
+
     @BeforeEach
-    public void setUp() {
+    public void setUp()  {
         MockitoAnnotations.openMocks(this);
+
     }
+
 
     @Test
     public void testAddEvent() {
@@ -50,7 +57,7 @@ public class EventControllerTest {
         // Mock the service's behavior
         EventDTO savedEvent= null;
         when(eventService.save(eventDTO)).thenReturn(savedEvent);
-
+        /*rever esto porque siempre devuelve null*/
         ResponseEntity<?> response = eventController.saveEvent(eventDTO);
         assertEquals(HttpStatus.OK, response.getStatusCode());
     }
