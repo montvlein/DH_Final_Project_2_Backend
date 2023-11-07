@@ -1,7 +1,6 @@
 package com.DH.apiuser.api.Service.Impl;
 
 import com.DH.apiuser.api.Service.IUserService;
-import com.DH.apiuser.domain.DTO.UserRequestDto;
 import com.DH.apiuser.domain.DTO.UserResponseDto;
 import com.DH.apiuser.domain.model.User;
 import com.DH.apiuser.domain.repository.UserRepository;
@@ -18,6 +17,8 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
+
+import static com.DH.apiuser.util.PasswordValidator.isValidPassword;
 
 
 @Service
@@ -39,7 +40,11 @@ public class UserServiceImpl implements IUserService {
         if (userRepository.findByMail(usuario.getMail()) != null) {
             throw new BadRequestException("El usuario ya existe!");
         }
-        usuario.setPassword(encoder.encode(usuario.getPassword()));
+        if (isValidPassword(usuario.getPassword())) {
+            usuario.setPassword(encoder.encode(usuario.getPassword()));
+        } else {
+            throw new BadRequestException("la contraseña no cumple con los requisitos");
+        }
         if (usuario.getRole() == null) {
             usuario.setRole(String.valueOf(Role.USER));
         }
@@ -83,9 +88,35 @@ public class UserServiceImpl implements IUserService {
     }
 
     @Override
-    public User update(Integer id, User usuario) {
+    public UserResponseDto addProfileData(Integer id, User usuario) throws ResourceNotFoundExceptions {
+        Optional<User> updateUser = userRepository.findById(id);
+        if (userRepository.findById(id) == null) {
+            throw new ResourceNotFoundExceptions("No existe el usuario");
+        }
+        User userDto = mapper.convertValue(updateUser, User.class);
+        if (usuario.getFirstName() != null) {
+            userDto.setFirstName(usuario.getFirstName());
+        }
+        if (usuario.getLastName() != null) {
+            userDto.setLastName(usuario.getLastName());
+        }
+        if (usuario.getBirthDate() != null) {
+            userDto.setBirthDate(usuario.getBirthDate());
+        }
+        if (usuario.getPhone() != null) {
+            userDto.setPhone(usuario.getPhone());
+        }
+        if (usuario.getIdNumber() != null) {
+            userDto.setIdNumber(usuario.getIdNumber().replaceAll("[.-]", ""));
+        }
 
-        return null;
+        if (usuario.getIdType() != null) {
+            userDto.setIdType(usuario.getIdType().toUpperCase());
+        }
+
+        User savedUser = userRepository.save(userDto);
+        return mapper.convertValue(savedUser, UserResponseDto.class);
+
     }
 
     @Override

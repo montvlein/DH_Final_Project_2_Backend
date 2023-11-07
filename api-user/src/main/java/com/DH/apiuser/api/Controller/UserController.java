@@ -67,9 +67,10 @@ public class UserController {
         return userService.findByMail(jwtTokenUtil.extractUserName(jwt));
     }
 
+    @PreAuthorize("hasRole('ROLE_USER')")
     @PatchMapping("/profile/{id}")
-    public ResponseEntity<User> profileUser(@PathVariable Integer id, @RequestBody User updatedUser) {
-        User updated = userService.update(id, updatedUser);
+    public ResponseEntity<UserResponseDto> profileUser(@PathVariable Integer id, @RequestBody User updatedUser) throws ResourceNotFoundExceptions {
+        UserResponseDto updated = userService.addProfileData(id, updatedUser);
         if (updated != null) {
             return new ResponseEntity<>(updated, HttpStatus.OK);
         } else {

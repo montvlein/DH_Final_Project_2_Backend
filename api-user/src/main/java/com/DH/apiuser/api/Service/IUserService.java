@@ -7,6 +7,7 @@ import com.DH.apiuser.util.Exceptions.BadRequestException;
 import com.DH.apiuser.util.Exceptions.ResourceNotFoundExceptions;
 
 
+import java.util.Optional;
 import java.util.Set;
 
 public interface IUserService {
@@ -19,7 +20,7 @@ public interface IUserService {
 
     public void delete(Integer id) throws ResourceNotFoundExceptions;// throws ResourceNotFoundExceptions;
 
-    public User update(Integer id, User usuario);
+    public UserResponseDto addProfileData(Integer id, User usuario) throws ResourceNotFoundExceptions;
 
     public UserResponseDto findByMail(String email);
 

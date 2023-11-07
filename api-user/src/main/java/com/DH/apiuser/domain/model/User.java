@@ -27,19 +27,17 @@ public class User {
     @NotBlank(message = "El campo 'mail' es requerido")
     @Pattern(regexp = "^[A-Za-z0-9+_.-]+@(.+)$", message = "El campo debe ser un correo electrónico válido")
     private String mail;
-    //@NotNull(message = "El campo 'password' es requerido")
-    //@Pattern(regexp = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)[A-Za-z\\d@#$%^&+=.]{8,}$", message = "La contraseña no cumple con los requisitos")
     private String password;
     @Column(nullable = true)
     private String birthDate;
     @Column(nullable = true)
-    private int phone;
+    private String phone;
     @Column(nullable = true)
     private String role;
     @Column(nullable = true)
     private String idType;
     @Column(nullable = true)
-    private int idNumber;
+    private String idNumber;
 
     public User(String firstName, String lastName, String mail, String password, String role) {
         this.firstName = firstName;
