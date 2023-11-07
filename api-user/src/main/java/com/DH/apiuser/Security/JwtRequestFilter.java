@@ -49,8 +49,7 @@ public class JwtRequestFilter extends OncePerRequestFilter {
                 }
             }
             filterChain.doFilter(request, response);
-        }
-        catch(JwtException e) {
+        } catch (JwtException e) {
             System.out.println("ERROR EN SEGURIDAD");
             response.setStatus(HttpStatus.INTERNAL_SERVER_ERROR.value());
             response.getWriter().write("ERROR JWT");

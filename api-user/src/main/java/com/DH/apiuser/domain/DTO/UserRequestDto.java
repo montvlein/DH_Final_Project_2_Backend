@@ -3,6 +3,9 @@ package com.DH.apiuser.domain.DTO;
 import com.DH.apiuser.util.Role;
 import lombok.*;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Pattern;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor

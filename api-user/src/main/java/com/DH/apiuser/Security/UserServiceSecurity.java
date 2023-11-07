@@ -1,7 +1,6 @@
 package com.DH.apiuser.Security;
 
 
-
 import com.DH.apiuser.domain.DTO.UserRequestDto;
 import com.DH.apiuser.domain.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,7 +26,7 @@ public class UserServiceSecurity implements UserDetailsService {
         //Debemos traer un Usuario basado en un string q recibe
         com.DH.apiuser.domain.model.User usuario = userRespository.findByMail(s);
 
-        if(usuario == null){
+        if (usuario == null) {
             throw new UsernameNotFoundException("Usuario o Paswword inválido");
         }
 
