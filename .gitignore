@@ -25,3 +25,6 @@ replay_pid*
 
 #intelliJ
 .idea
+.idea/
+
+target/
