@@ -18,6 +18,9 @@ public class DateTime {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private LocalDateTime dateTime;
+    @ManyToOne
+    @JoinColumn(name="event_id")
+    private Event event;
 
 
 }

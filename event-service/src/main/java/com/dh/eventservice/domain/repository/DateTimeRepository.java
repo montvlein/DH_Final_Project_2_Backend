@@ -11,5 +11,5 @@ import java.util.List;
 @Repository
 public interface DateTimeRepository extends JpaRepository<DateTime, Integer> {
 
-    /*List<DateTime> findAllByDateTime(LocalDateTime date);*/
+
 }

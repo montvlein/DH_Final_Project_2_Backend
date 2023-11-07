@@ -15,7 +15,7 @@ public interface DateTimeService {
     void delete(Integer id) throws ResourceNotFoundExceptions;
     String update(DateTimeDTO dateTimeDTO) throws ResourceNotFoundExceptions;
 
-    /*List<DateTime> findAllByDateTime(LocalDateTime date) throws ResourceNotFoundExceptions;*/
+    /*List<DateTime> findAllByDate(LocalDateTime date);*/
 
 
 }

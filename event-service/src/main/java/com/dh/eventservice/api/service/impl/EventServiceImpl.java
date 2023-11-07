@@ -3,19 +3,23 @@ package com.dh.eventservice.api.service.impl;
 import com.dh.eventservice.api.Exceptions.ResourceNotFoundExceptions;
 import com.dh.eventservice.api.config.ModelMapperConfig;
 import com.dh.eventservice.api.service.EventService;
-import com.dh.eventservice.api.Exceptions.ResourceNotFoundExceptions;
-import com.dh.eventservice.domain.DTO.CategoryDto;
+
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import com.dh.eventservice.domain.DTO.EventDTO;
 import com.dh.eventservice.domain.model.Category;
+import com.dh.eventservice.domain.model.DateTime;
 import com.dh.eventservice.domain.model.Event;
 import com.dh.eventservice.domain.repository.CategoryRepository;
+import com.dh.eventservice.domain.repository.DateTimeRepository;
 import com.dh.eventservice.domain.repository.EventRepository;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Optional;
 
@@ -30,6 +34,9 @@ public class EventServiceImpl implements EventService {
 
 	@Autowired
 	private CategoryRepository categoryRepository;
+
+	@Autowired
+	private DateTimeRepository dateTimeRepository;
 
 	@Autowired
 	private ModelMapperConfig mapper;
@@ -48,6 +55,17 @@ public class EventServiceImpl implements EventService {
 
 		logger.info("Se listaron los eventos de categoria: {}", category);
 
+		return events;
+	}
+
+	/*voy a traer una lista de eventos de auerdo a una fecha*/
+	@Override
+	public List<Event> getListByDate(String date) throws ResourceNotFoundExceptions{
+		/*DateTime dateTime1 = dateTimeRepository.findByDateTime(LocalDateTime.parse(dateTime));
+		System.out.println(dateTime1);*/
+		String fechaSinHora = date.substring(0, 10); // Extrae los primeros 10 caracteres (yyyy-MM-dd)
+		List<Event> events = eventRepository.findAllByDateList(fechaSinHora);
+		logger.info("Se listaron los eventos de la fecha: {}", date);
 		return events;
 	}
 
@@ -141,9 +159,11 @@ public class EventServiceImpl implements EventService {
 		return response;
 	}
 
+
+
 	private Event updateDb(Event event, EventDTO eventDTO){
-		if(eventDTO.getDate() != null) {
-			event.setDate(eventDTO.getDate());
+		if(eventDTO.getDateList() != null) {
+			event.setDateList(eventDTO.getDateList());
 		}
 
 		if(eventDTO.getDescription() != null){

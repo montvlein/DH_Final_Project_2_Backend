@@ -2,9 +2,10 @@ package com.dh.eventservice.api.controller;
 
 import com.dh.eventservice.api.Exceptions.ResourceNotFoundExceptions;
 import com.dh.eventservice.api.service.EventService;
-import com.dh.eventservice.domain.DTO.CategoryDto;
+import java.time.LocalDateTime;
 import com.dh.eventservice.domain.DTO.EventDTO;
 import com.dh.eventservice.domain.model.Event;
+import org.apache.tomcat.jni.Local;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -28,6 +29,12 @@ public class EventController {
 	public ResponseEntity<List<Event>> getEventByCategory(@PathVariable String category) {
 		return ResponseEntity.ok().body(eventService.getListByCategory(category));
 	}
+
+	@GetMapping("/dateTime/{dateTime}")
+	public ResponseEntity<List<Event>> getEventsByDate (@PathVariable String dateTime) throws ResourceNotFoundExceptions{
+		return ResponseEntity.ok().body(eventService.getListByDate(dateTime));
+	}
+
 
 	@GetMapping("/category/{id}")
 	public ResponseEntity<List<EventDTO>> getEventByCategoryId(@PathVariable Integer id) {

@@ -3,10 +3,13 @@ package com.dh.eventservice.domain.repository;
 
 
 import com.dh.eventservice.domain.DTO.EventDTO;
+import com.dh.eventservice.domain.model.DateTime;
 import com.dh.eventservice.domain.model.Event;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -18,6 +21,11 @@ public interface EventRepository extends JpaRepository<Event, Integer> {
 	List<Event> findAllByCategoryId(Integer id);
 
 	List<Event> findAllByVenue(String venue);
+
+	@Query(value = "SELECT * FROM events e " +
+			"INNER JOIN dates d ON e.id = d.event_id " +
+			"WHERE DATE(d.date_time) = ?1", nativeQuery = true)
+	List<Event> findAllByDateList (String date);
 
 	/*List<EventDTO> getListByCountry (String country);
 
