@@ -60,7 +60,7 @@ public class CategoryServiceImpl implements CategoryService {
 
     @Override
     public void delete(Integer idCategory) throws ResourceNotFoundExceptions{
-        if (categoryRepository.findById((idCategory))==null){
+        if (categoryRepository.findById(idCategory).isEmpty()){
             logger.error("No existe el elmento a eliminar");
             throw  new ResourceNotFoundExceptions("No existe el elmento a eliminar");
         }else {

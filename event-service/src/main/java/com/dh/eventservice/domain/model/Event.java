@@ -25,10 +25,14 @@ public class Event {
 	private Integer capacity;
 	private String imageUrl;
 	private String name;
-	private String venue;
+
 	@ManyToOne( fetch = FetchType.EAGER)
 	@JoinColumn(name = "id_category",nullable = false)
 	@JsonIgnoreProperties(value = {"applications", "hibernateLazyInitializer"})
 	private Category category;
 
+	@ManyToOne( fetch = FetchType.EAGER)
+	@JoinColumn(name = "id_venue",nullable = false)
+	@JsonIgnoreProperties(value = {"applications", "hibernateLazyInitializer"})
+	private Venue venue;
 }
