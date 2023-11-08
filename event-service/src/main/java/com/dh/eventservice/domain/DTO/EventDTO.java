@@ -6,6 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import java.util.ArrayList;
+import java.util.List;
 
 
 @Data
@@ -13,7 +14,7 @@ import java.util.ArrayList;
 @NoArgsConstructor
 public class EventDTO {
     private Integer id;
-    private ArrayList<DateTime> dateList;
+    private List<DateTime> dateList;
     private String description;
     private String name;
     private Venue venue;

@@ -15,11 +15,11 @@ public interface EventService {
 
     List<Event> getListByCountry(String country) throws  ResourceNotFoundExceptions;
 
-    List<EventDTO> getListByCountryAndCity(String country, String city);
+    List<Event> getListByCountryAndCity(String country, String city);
 
     List<EventDTO> getListByCategoryId(Integer id);
 
-    List<EventDTO> getListByVenue(String venue);
+    List<EventDTO> getListByName(String venue);
 
     List<EventDTO> getAllEvents();
 

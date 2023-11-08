@@ -20,7 +20,7 @@ public interface EventRepository extends JpaRepository<Event, Integer> {
 
 	List<Event> findAllByCategoryId(Integer id);
 
-	List<Event> findAllByVenue(String venue);
+	List<EventDTO> findAllByName(String name);
 
 	@Query(value = "SELECT * FROM events e " +
 			"INNER JOIN dates d ON e.id = d.event_id " +
@@ -30,6 +30,8 @@ public interface EventRepository extends JpaRepository<Event, Integer> {
 	@Query("SELECT e FROM Event e WHERE e.venue.country = ?1")
 	List<Event> findEventsByCountry(String country);
 
-	/*List<EventDTO> getListByCountryAndCity(String country, String city);*/
+
+	@Query("SELECT e FROM Event e WHERE e.venue.city = ?1 AND e.venue.country = ?2")
+	List<Event> findEventsByCityAndCountry(String city, String country);
 
 }

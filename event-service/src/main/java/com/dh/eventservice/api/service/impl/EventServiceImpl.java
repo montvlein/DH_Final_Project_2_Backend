@@ -71,8 +71,8 @@ public class EventServiceImpl implements EventService {
     }
 
     @Override
-    public List<EventDTO> getListByCountryAndCity(String country, String city) {
-        return null;
+    public List<Event> getListByCountryAndCity(String city, String country) {
+        return eventRepository.findEventsByCityAndCountry(city, country);
     }
 
     @Override
@@ -87,11 +87,11 @@ public class EventServiceImpl implements EventService {
 
 
     @Override
-    public List<EventDTO> getListByVenue(String venue) {
-        List<Event> events = eventRepository.findAllByVenue(venue);
+    public List<EventDTO> getListByName(String name) {
+        List<EventDTO> events = eventRepository.findAllByName(name);
 
-        logger.info("Se listaron los eventos del recinto: {}", venue);
-        return mapper.getModelMapper().map(events, List.class);
+        logger.info("Se listaron los eventos del recinto: {}", name);
+        return events;
     }
 
     @Override
@@ -108,11 +108,13 @@ public class EventServiceImpl implements EventService {
     public EventDTO save(EventDTO eventDto) {
 
         Event event = mapper.getModelMapper().map(eventDto, Event.class);
-        eventRepository.save(event);
 
         logger.info("Se guardó el evento: {}", event);
 
-        return mapper.getModelMapper().map(eventRepository.save(event), EventDTO.class);
+        Event guardado = eventRepository.save(event);
+
+        System.out.println(guardado);
+        return mapper.getModelMapper().map(guardado, EventDTO.class);
 
     }
 

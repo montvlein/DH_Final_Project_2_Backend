@@ -44,6 +44,19 @@ public class EventController {
 		return ResponseEntity.ok().body(eventService.getListByCountry(country));
 	}
 
+	@GetMapping("/{name}")
+	public ResponseEntity<List<EventDTO>> getEventByName(@PathVariable String name){
+		return ResponseEntity.ok().body(eventService.getListByName(name));
+	}
+
+	@GetMapping("/byCityAndCountry")
+	public List<Event> getEventsByCityAndCountry(
+			@RequestParam String city,
+			@RequestParam String country
+	) {
+		return eventService.getListByCountryAndCity(city, country);
+	}
+
 	@GetMapping
 	public ResponseEntity<List<EventDTO>> getAllEvents() {
 		return ResponseEntity.ok().body(eventService.getAllEvents());
