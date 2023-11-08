@@ -56,15 +56,15 @@ public class CategoryController {
 
 
     //Actualizar Categoría
-    @PutMapping
-    public ResponseEntity<HttpStatus> updateCategory(@RequestBody CategoryDto categoriaDTO) throws ResourceNotFoundExceptions{
+    @PutMapping("/update")
+    public ResponseEntity<String> updateCategory(@RequestBody CategoryDto categoriaDTO) throws ResourceNotFoundExceptions{
 
         if(categoriaDTO.getId() != null && categoryService.findById(categoriaDTO.getId())!= null){
             categoryService.update(categoriaDTO);
         }else{
             throw new ResourceNotFoundExceptions("No existe la categoria que se queire actualizar");
         }
-        return ResponseEntity.ok(HttpStatus.OK);
+        return ResponseEntity.ok(categoryService.update(categoriaDTO));
     }
 
 }

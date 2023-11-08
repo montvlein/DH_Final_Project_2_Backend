@@ -22,5 +22,5 @@ public interface CategoryService {
 
     CategoryDto findById(Integer idCategory) throws ResourceNotFoundExceptions;
 
-    ResponseEntity update(CategoryDto categoryDto);
+    String update(CategoryDto categoryDto) throws ResourceNotFoundExceptions;
 }

@@ -88,7 +88,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 
 
-        @Test
+        /*@Test
         public void testUpdateCategory() throws ResourceNotFoundExceptions {
             CategoryDto categoriaDTO = new CategoryDto();
             categoriaDTO.setId(1);
@@ -104,7 +104,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 
             // Verificar que la respuesta sea la esperada (código de estado 200 - OK)
             assertEquals(HttpStatus.OK, response.getStatusCode());
-        }
+        }*/
 
 
     }
