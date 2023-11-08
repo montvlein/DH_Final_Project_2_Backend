@@ -66,8 +66,8 @@ public class EventServiceImpl implements EventService {
     }
 
     @Override
-    public List<EventDTO> getListByCountry(String country) {
-        return null;
+    public List<Event> getListByCountry(String country) {
+        return eventRepository.findEventsByCountry(country);
     }
 
     @Override

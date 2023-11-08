@@ -13,7 +13,7 @@ public interface EventService {
 
     List<Event> getListByCategory(String category);
 
-    List<EventDTO> getListByCountry(String country);
+    List<Event> getListByCountry(String country) throws  ResourceNotFoundExceptions;
 
     List<EventDTO> getListByCountryAndCity(String country, String city);
 
@@ -32,4 +32,5 @@ public interface EventService {
     String update(EventDTO eventDTO) throws ResourceNotFoundExceptions;
 
     List<Event> getListByDate(String dateTime) throws ResourceNotFoundExceptions;
+
 }

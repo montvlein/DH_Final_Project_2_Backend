@@ -27,8 +27,9 @@ public interface EventRepository extends JpaRepository<Event, Integer> {
 			"WHERE DATE(d.date_time) = ?1", nativeQuery = true)
 	List<Event> findAllByDateList (String date);
 
-	/*List<EventDTO> getListByCountry (String country);
+	@Query("SELECT e FROM Event e WHERE e.venue.country = ?1")
+	List<Event> findEventsByCountry(String country);
 
-	List<EventDTO> getListByCountryAndCity(String country, String city);*/
+	/*List<EventDTO> getListByCountryAndCity(String country, String city);*/
 
 }

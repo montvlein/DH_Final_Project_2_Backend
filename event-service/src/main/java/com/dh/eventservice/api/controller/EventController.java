@@ -39,9 +39,9 @@ public class EventController {
 		return ResponseEntity.ok().body(eventService.getListByCategoryId(id));
 	}
 
-	@GetMapping("/venueType/{venue}")
-	public ResponseEntity<List<EventDTO>> getEventByVenue(@PathVariable String venue) {
-		return ResponseEntity.ok().body(eventService.getListByVenue(venue));
+	@GetMapping("/venue/{country}")
+	public ResponseEntity<List<Event>> getEventByVenueCountry(@PathVariable String country) throws ResourceNotFoundExceptions {
+		return ResponseEntity.ok().body(eventService.getListByCountry(country));
 	}
 
 	@GetMapping
