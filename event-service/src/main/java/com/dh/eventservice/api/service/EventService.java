@@ -13,13 +13,15 @@ public interface EventService {
 
     List<Event> getListByCategory(String category);
 
-    List<Event> getListByCountry(String country) throws  ResourceNotFoundExceptions;
+    List<Event> getListByCountry(String country) throws ResourceNotFoundExceptions;
 
     List<Event> getListByCountryAndCity(String country, String city);
 
     List<EventDTO> getListByCategoryId(Integer id);
 
-    List<EventDTO> getListByName(String venue);
+    List<EventDTO> getListByName(String name);
+
+    List<Event> getEventsByVenue(String venue);
 
     List<EventDTO> getAllEvents();
 

@@ -94,6 +94,12 @@ public class EventServiceImpl implements EventService {
         return events;
     }
 
+
+    @Override
+    public List<Event> getEventsByVenue(String venue) {
+        return eventRepository.findEventsByVenue(venue);
+    }
+
     @Override
     public List<EventDTO> getAllEvents() {
         List<Event> events = eventRepository.findAll();
