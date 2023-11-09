@@ -2,6 +2,7 @@ package com.dh.eventservice.api.controller;
 
 import com.dh.eventservice.api.Exceptions.ResourceNotFoundExceptions;
 import com.dh.eventservice.api.service.VenueService;
+import com.dh.eventservice.domain.DTO.EventDTO;
 import com.dh.eventservice.domain.DTO.VenueDTO;
 import com.dh.eventservice.domain.model.Venue;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -59,14 +60,8 @@ public class VenueController {
 
     //Actualizar recinto
     @PutMapping
-    public ResponseEntity<HttpStatus> updateVenue(@RequestBody VenueDTO venueDTO) throws ResourceNotFoundExceptions{
-
-        if(venueDTO.getId() != null && venueService.findById(venueDTO.getId())!= null){
-            venueService.update(venueDTO);
-        }else{
-            throw new ResourceNotFoundExceptions("No existe el recinto que se quiere actualizar");
-        }
-        return ResponseEntity.ok(HttpStatus.OK);
+    public ResponseEntity<String> update(@RequestBody VenueDTO venueDTO) throws ResourceNotFoundExceptions {
+        return ResponseEntity.ok(venueService.update(venueDTO));
     }
 
 }
