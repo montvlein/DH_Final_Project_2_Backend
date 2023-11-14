@@ -21,5 +21,5 @@ public interface VenueService {
 
     VenueDTO findById(Integer idVenue) throws ResourceNotFoundExceptions;
 
-    ResponseEntity update(VenueDTO venueDTO);
+    String update(VenueDTO venueDTO) throws ResourceNotFoundExceptions;
 }

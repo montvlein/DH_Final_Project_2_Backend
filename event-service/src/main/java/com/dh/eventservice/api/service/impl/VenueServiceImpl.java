@@ -3,8 +3,10 @@ import com.dh.eventservice.api.Exceptions.ResourceNotFoundExceptions;
 import com.dh.eventservice.api.config.ModelMapperConfig;
 import com.dh.eventservice.api.service.VenueService;
 import com.dh.eventservice.api.service.VenueService;
+import com.dh.eventservice.domain.DTO.EventDTO;
 import com.dh.eventservice.domain.DTO.VenueDTO;
 import com.dh.eventservice.domain.DTO.VenueDTO;
+import com.dh.eventservice.domain.model.Event;
 import com.dh.eventservice.domain.model.Venue;
 import com.dh.eventservice.domain.model.Venue;
 import com.dh.eventservice.domain.repository.VenueRepository;
@@ -89,8 +91,36 @@ public class VenueServiceImpl implements VenueService {
     }
 
     @Override
-    public ResponseEntity update(VenueDTO venueDTO) {
+    public String update(VenueDTO venueDTO) throws ResourceNotFoundExceptions{
+        Optional<Venue> venue = venueRepository.findById(venueDTO.getId());
+        String response;
+        if (venue.isPresent()) {
+            venueRepository.save(this.updateDb(venue.get(), venueDTO));
+            mapperM.getModelMapper().map(venueDTO, VenueDTO.class);
+            response = "Successful update";
+        } else {
+            throw new ResourceNotFoundExceptions("El recinto no pudo ser actualizado");
+        }
+        return response;
+    }
 
-        return null;
+    private Venue updateDb(Venue venue, VenueDTO venueDTO){
+        if (venueDTO.getVenue() != null) {
+            venue.setVenue(venueDTO.getVenue());
+        }
+
+        if (venueDTO.getCity() != null) {
+            venue.setCity(venueDTO.getCity());
+        }
+
+        if (venueDTO.getAddress() != null) {
+            venue.setAddress(venueDTO.getAddress());
+        }
+
+        if (venueDTO.getCountry() != null) {
+            venue.setCountry(venueDTO.getCountry());
+        }
+
+        return venue;
     }
 }

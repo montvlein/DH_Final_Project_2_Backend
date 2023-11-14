@@ -4,7 +4,9 @@ import com.dh.eventservice.api.Exceptions.ResourceNotFoundExceptions;
 import com.dh.eventservice.api.config.ModelMapperConfig;
 import com.dh.eventservice.api.service.CategoryService;
 import com.dh.eventservice.domain.DTO.CategoryDto;
+import com.dh.eventservice.domain.DTO.EventDTO;
 import com.dh.eventservice.domain.model.Category;
+import com.dh.eventservice.domain.model.Event;
 import com.dh.eventservice.domain.repository.CategoryRepository;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.slf4j.Logger;
@@ -23,6 +25,7 @@ public class CategoryServiceImpl implements CategoryService {
 
     private static final Logger logger = LoggerFactory.getLogger(CategoryServiceImpl.class);
     private final CategoryRepository categoryRepository;
+
 
     @Autowired
     public CategoryServiceImpl(CategoryRepository categoryRepository) {
@@ -82,8 +85,29 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
-    public ResponseEntity update(CategoryDto categoryDto) {
+    public String update(CategoryDto categoryDto) throws ResourceNotFoundExceptions{
+        Optional<Category> category = categoryRepository.findById(categoryDto.getId());
+        String response;
+        if (category.isPresent()){
+            categoryRepository.save(this.updateDb(category.get(), categoryDto));
+            mapperM.getModelMapper().map(categoryDto, CategoryDto.class);
+            response = "Successful update";
+        } else {
+            throw new ResourceNotFoundExceptions("Event could not be updated");
+        }
+        return response;
+    }
 
-        return null;
+
+    private Category updateDb(Category category, CategoryDto categoryDto){
+        if(categoryDto.getUrlImage() != null) {
+            category.setUrlImage(categoryDto.getUrlImage());
+        }
+
+        if(categoryDto.getDescription() != null){
+            category.setDescription(categoryDto.getDescription());
+        }
+
+        return category;
     }
 }

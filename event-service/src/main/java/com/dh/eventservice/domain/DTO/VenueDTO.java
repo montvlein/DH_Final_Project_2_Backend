@@ -5,7 +5,6 @@ import lombok.Setter;
 @Getter
 @Setter
 public class VenueDTO {
-
     private Integer id;
     private String venue;
     private String country;
