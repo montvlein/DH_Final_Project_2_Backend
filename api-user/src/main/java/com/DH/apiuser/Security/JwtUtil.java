@@ -23,6 +23,9 @@ public class JwtUtil {
     public String extractUserName(String token) {
         return extractClaim(token, Claims::getSubject);
     }
+    public Integer extractUserId(String token) {
+        return extractClaim(token, claims -> claims.get("userId", Integer.class));
+    }
 
     //Extract expiration
     public Date extractExpiration(String token) {
@@ -41,8 +44,10 @@ public class JwtUtil {
 
 
         // Agrego al payload nombre y apellido para visualizar en <Avatar/>
-        // claims.put("nombre", usuarioDTO.getNombre());
-        // claims.put("apellido", usuarioDTO.getApellido());
+         claims.put("nombre", user.getFirstName());
+         claims.put("apellido", user.getLastName());
+
+        claims.put("userId", user.getId());
 
         // Agrego al payload el listado de roles del usuario
         claims.put("roles", userDetails.getAuthorities());
