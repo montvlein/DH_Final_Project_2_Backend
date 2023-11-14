@@ -25,4 +25,5 @@ public interface IUserService {
     public UserResponseDto findByMail(String email);
 
 
+    String updatePassword(Integer id, String oldPassword, String newPassword) throws BadRequestException, ResourceNotFoundExceptions;
 }

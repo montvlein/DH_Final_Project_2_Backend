@@ -124,5 +124,27 @@ public class UserServiceImpl implements IUserService {
         return mapper.convertValue(userRepository.findByMail(email), UserResponseDto.class);
     }
 
+    public String updatePassword(Integer id, String currentPassword, String newPassword) throws BadRequestException, ResourceNotFoundExceptions {
+        Optional<User> userOptional = userRepository.findById(id);
+        if (userOptional.isPresent()) {
+            User user = userOptional.get();
+            logger.info(user.toString());
+            // Verificar que la contraseña actual coincida
+            if (!encoder.matches(currentPassword, user.getPassword())) {
+                throw new BadRequestException("La contraseña actual no es válida.");
+            }
+
+            // Verificar y actualizar la nueva contraseña
+            if (isValidPassword(newPassword)) {
+                user.setPassword(encoder.encode(newPassword));
+                userRepository.save(user);
+                return "Contraseña actualizada correctamente.";
+            } else {
+                throw new BadRequestException("La nueva contraseña no cumple con los requisitos.");
+            }
+        } else {
+            throw new ResourceNotFoundExceptions("Usuario no encontrado.");
+        }
+    }
 
 }

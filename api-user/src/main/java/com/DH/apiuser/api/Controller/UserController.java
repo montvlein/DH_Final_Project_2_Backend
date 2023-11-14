@@ -24,6 +24,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Map;
 import java.util.Set;
 
 @RestController
@@ -63,7 +64,7 @@ public class UserController {
     }
 
     @GetMapping("/dataUser")
-    public UserResponseDto datosUsuarioAut(@RequestParam String jwt) {
+    public UserResponseDto datosUsuarioAut(@RequestHeader(name = "token") String jwt) {
         return userService.findByMail(jwtTokenUtil.extractUserName(jwt));
     }
 
@@ -97,5 +98,12 @@ public class UserController {
         return ResponseEntity.ok(HttpStatus.OK);
     }
 
+    @PatchMapping("/updatePassword")
+    public ResponseEntity<String> updatePassword(@RequestHeader(name = "token") String jwt, @RequestBody Map<String, String> passwordData) throws BadRequestException, ResourceNotFoundExceptions {
+        String currentPassword = passwordData.get("currentPassword");
+        String newPassword = passwordData.get("newPassword");
+        String result = userService.updatePassword(jwtTokenUtil.extractUserId(jwt), currentPassword, newPassword);
+        return ResponseEntity.ok(result);
 
+    }
 }
