@@ -20,8 +20,9 @@ public class DateTime {
     private Integer id;
     private LocalDateTime dateTime;
 
-    @JsonBackReference
-    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
+    /*@JsonBackReference
+    /*@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
+    @ManyToOne(targetEntity = Event.class, fetch = FetchType.LAZY)
     @JoinColumn(name = "event_id", referencedColumnName = "id")
-    private Event event;
+    private Event event;*/
 }

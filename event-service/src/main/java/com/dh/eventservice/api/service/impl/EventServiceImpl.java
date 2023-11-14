@@ -21,6 +21,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
@@ -82,20 +83,19 @@ public class EventServiceImpl implements EventService {
     @Override
     public List<EventDTO> getListByCategoryId(Integer id) {
         List<Event> events = eventRepository.findAllByCategoryId(id);
-
         logger.info("Se listaron los eventos de categoria: {}", id);
-
         return mapper.getModelMapper().map(events, List.class);
-
     }
-
 
     @Override
     public List<EventDTO> getListByName(String name) {
         List<EventDTO> events = eventRepository.findAllByName(name);
-
+        List<EventDTO> evDto = new ArrayList<>();
+        for (EventDTO e: events){
+            evDto.add(mapper.getModelMapper().map(e, EventDTO.class));
+        }
         logger.info("Se listaron los eventos del recinto: {}", name);
-        return events;
+        return evDto;
     }
 
 
@@ -107,25 +107,19 @@ public class EventServiceImpl implements EventService {
     @Override
     public List<EventDTO> getAllEvents() {
         List<Event> events = eventRepository.findAll();
-
+        List<EventDTO> eventDto = new ArrayList<>();
+        for (Event e : events) {
+            eventDto.add(mapper.getModelMapper().map(e, EventDTO.class));
+        }
         logger.info("Se listaron todos los eventos");
-
-        return mapper.getModelMapper().map(events, List.class);
-
+        return eventDto;
     }
 
     @Override
     public EventDTO save(EventDTO eventDto) {
-
         Event event = mapper.getModelMapper().map(eventDto, Event.class);
-
         logger.info("Se guardó el evento: {}", event);
-
-        Event guardado = eventRepository.save(event);
-
-        System.out.println(guardado);
-        return mapper.getModelMapper().map(guardado, EventDTO.class);
-
+        return mapper.getModelMapper().map(eventRepository.save(event), EventDTO.class);
     }
 
     @Override
@@ -137,7 +131,6 @@ public class EventServiceImpl implements EventService {
             eventRepository.deleteById(id);
             logger.info("Se elimino correctamente el elemento con id: " + id);
         }
-
     }
 
     @Override
@@ -170,7 +163,7 @@ public class EventServiceImpl implements EventService {
 
     private Event updateDb(Event event, EventDTO eventDTO) {
         if (eventDTO.getDateList() != null) {
-            for (DateTimeDTO dateDto: eventDTO.getDateList()) {
+            for (DateTimeDTO dateDto : eventDTO.getDateList()) {
                 event.getDateList().add(mapper.getModelMapper().map(dateDto, DateTime.class));
             }
         }

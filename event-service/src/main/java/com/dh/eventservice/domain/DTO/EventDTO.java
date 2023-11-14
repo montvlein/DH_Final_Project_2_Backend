@@ -2,6 +2,8 @@ package com.dh.eventservice.domain.DTO;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.util.List;
 import java.util.Set;
 
 
@@ -10,7 +12,7 @@ import java.util.Set;
 @AllArgsConstructor
 public class EventDTO {
     private Integer id;
-    private Set<DateTimeDTO> dateList;
+    private List<DateTimeDTO> dateList;
     private String description;
     private String name;
     private VenueDTO venue;
