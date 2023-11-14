@@ -5,9 +5,12 @@ import com.dh.eventservice.api.config.ModelMapperConfig;
 import com.dh.eventservice.api.service.EventService;
 
 
+import com.dh.eventservice.domain.DTO.DateTimeDTO;
 import com.dh.eventservice.domain.DTO.EventDTO;
 import com.dh.eventservice.domain.model.Category;
+import com.dh.eventservice.domain.model.DateTime;
 import com.dh.eventservice.domain.model.Event;
+import com.dh.eventservice.domain.model.Venue;
 import com.dh.eventservice.domain.repository.CategoryRepository;
 import com.dh.eventservice.domain.repository.DateTimeRepository;
 import com.dh.eventservice.domain.repository.EventRepository;
@@ -20,6 +23,7 @@ import org.springframework.stereotype.Service;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 
 @Service
@@ -166,7 +170,9 @@ public class EventServiceImpl implements EventService {
 
     private Event updateDb(Event event, EventDTO eventDTO) {
         if (eventDTO.getDateList() != null) {
-            event.setDateList(eventDTO.getDateList());
+            for (DateTimeDTO dateDto: eventDTO.getDateList()) {
+                event.getDateList().add(mapper.getModelMapper().map(dateDto, DateTime.class));
+            }
         }
 
         if (eventDTO.getDescription() != null) {
@@ -190,7 +196,7 @@ public class EventServiceImpl implements EventService {
         }
 
         if (eventDTO.getVenue() != null) {
-            event.setVenue(eventDTO.getVenue());
+            event.setVenue(mapper.getModelMapper().map(eventDTO.getVenue(), Venue.class));
         }
 
         if (eventDTO.getCategory() != null) {

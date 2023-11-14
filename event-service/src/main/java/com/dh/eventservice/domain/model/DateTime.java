@@ -1,5 +1,6 @@
 package com.dh.eventservice.domain.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -18,9 +19,9 @@ public class DateTime {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private LocalDateTime dateTime;
-    @ManyToOne
-    @JoinColumn(name="event_id")
+
+    @JsonBackReference
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
+    @JoinColumn(name = "event_id", referencedColumnName = "id")
     private Event event;
-
-
 }

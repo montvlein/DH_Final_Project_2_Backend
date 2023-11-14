@@ -72,8 +72,9 @@ public class EventController {
 
 
     @PostMapping
-    public ResponseEntity<EventDTO> saveEvent(@RequestBody EventDTO eventDto) {
-        return ResponseEntity.ok().body(eventService.save(eventDto));
+    public ResponseEntity<?> saveEvent(@RequestBody EventDTO eventDto) {
+        eventService.save(eventDto);
+        return ResponseEntity.ok(HttpStatus.CREATED);
     }
 
     @DeleteMapping("/{id}")

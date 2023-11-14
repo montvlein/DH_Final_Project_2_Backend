@@ -1,25 +1,23 @@
 package com.dh.eventservice.domain.DTO;
-import com.dh.eventservice.domain.model.Category;
-import com.dh.eventservice.domain.model.Venue;
-import com.dh.eventservice.domain.model.DateTime;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Set;
 
 
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 public class EventDTO {
     private Integer id;
-    private List<DateTime> dateList;
+    private Set<DateTimeDTO> dateList;
     private String description;
     private String name;
-    private Venue venue;
+    private VenueDTO venue;
     private String miniImageUrl;
     private String bannerImageUrl;
     private String detailImageUrl;
-    private Category category;
+    private CategoryDto category;
+
+
 }

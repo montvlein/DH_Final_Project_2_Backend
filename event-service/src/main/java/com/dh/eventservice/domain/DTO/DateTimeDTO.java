@@ -12,4 +12,6 @@ import java.time.LocalDateTime;
 public class DateTimeDTO {
     private Integer id;
     private LocalDateTime dateTime;
+    private EventDTO event;
+
 }

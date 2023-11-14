@@ -1,15 +1,13 @@
 package com.dh.eventservice.domain.model;
 
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Set;
 
 @Data
 @NoArgsConstructor
@@ -20,9 +18,8 @@ public class Event {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    @OneToMany(mappedBy = "event", cascade = CascadeType.ALL)
-    @JsonIgnore
-    private List<DateTime> dateList;
+    @OneToMany(mappedBy = "event", cascade = CascadeType.ALL, fetch=FetchType.EAGER, orphanRemoval = true)
+    private Set<DateTime> dateList;
     private String description;
     private String name;
     private String miniImageUrl;
