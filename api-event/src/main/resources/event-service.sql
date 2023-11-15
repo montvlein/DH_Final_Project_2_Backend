@@ -1,18 +1,87 @@
-<!--INSERT INTO categories( description, url_image) VALUES('Concierto','https://www.tuentrada.com/images/64ef2a94a573c.webp');-->
-<!--INSERT INTO categories( description, url_image) VALUES( 'Teatro','https://www.tuentrada.com/images/64ef2a94a573c.webp');-->
+INSERT INTO categories (id, description, url_image) VALUES ('1', 'Concierto', 'https://golden-ticket.s3.amazonaws.com/categorias/1.png');
+INSERT INTO categories (id, description, url_image) VALUES ('2', 'Teatro', 'https://golden-ticket.s3.amazonaws.com/categorias/2.jpg');
+INSERT INTO categories (id, description, url_image) VALUES ('3', 'Evento Deportivo', 'https://golden-ticket.s3.amazonaws.com/categorias/3.jpg');
 
-<!--INSERT INTO venues(venue, country, city, address) VALUES ('Ferrocarril Oeste', 'Argentina', 'Buenos Aires', 'Av. Avellaneda 1240, Caballito')-->
-<!--INSERT INTO venues(venue, country, city, address) VALUES ('Club Atlético River Plate', 'Argentina', 'Buenos Aires', 'Av. Pres. Figueroa Alcorta 7597')-->
-<!--INSERT INTO venues(venue, country, city, address) VALUES ('Mario Alberto Kempes', 'Argentina', 'Córdoba', 'Ramón Cárcano, Córdoba')-->
+INSERT INTO venues(id, venue, country, city, address) VALUES (1, 'River Plate', 'Argentina', 'Buenos Aires', 'Av. Pres. Figueroa Alcorta 7597');
+INSERT INTO venues(id, venue, country, city, address) VALUES (2, 'Estadio Unico de La Plata', 'Argentina', 'La Plata', 'Av. 25');
+INSERT INTO venues(id, venue, country, city, address) VALUES (3, 'Estadio Boca Juniors', 'Argentina', 'Buenos Aires', 'Brandsen 805');
+INSERT INTO venues(id, venue, country, city, address) VALUES (4, 'Teatro Vorterix', 'Argentina', 'Buenos Aires', 'Federico Lacroze 3455');
+INSERT INTO venues(id, venue, country, city, address) VALUES (5, 'La Trastienda', 'Argentina', 'Buenos Aires', 'Balcarce 460');
+INSERT INTO venues(id, venue, country, city, address) VALUES (6, 'Teatro Maipo', 'Argentina', 'Buenos Aires', 'Esmeralda 443');
+INSERT INTO venues(id, venue, country, city, address) VALUES (7, 'Hipodromo de San Isidro', 'Argentina', 'San Isidro', 'Av. Bernabé Márquez 700');
+INSERT INTO venues(id, venue, country, city, address) VALUES (8, 'Estadio Eva Perón', 'Argentina', 'Junin', 'Necochea 25');
+INSERT INTO venues(id, venue, country, city, address) VALUES (9, 'Estadio José María Minella', 'Argentina', 'Mar del Plata', 'Av. de las Olimpiadas 760');
 
 
-<!--INSERT INTO events(description, mini_image_url, banner_image_url, detail_image_url, name, id_venue, id_category) VALUES('Bad Religion', "imagen mini", "imagen banner", 'imagen detalle', 'Bad Religion', 3, 2);-->
-<!--INSERT INTO events(description, mini_image_url, banner_image_url, detail_image_url, name, id_venue, id_category) VALUES('Bad Religion', "imagen mini", "imagen banner", 'imagen detalle', 'Bad Religion', 2, 1);-->
-<!--INSERT INTO events(description, mini_image_url, banner_image_url, detail_image_url, name, id_venue, id_category) VALUES('Bad Religion', "imagen mini", "imagen banner", 'imagen detalle', 'Bad Religion', 1, 2);-->
-<!--INSERT INTO events(description, mini_image_url, banner_image_url, detail_image_url, name, id_venue, id_category) VALUES('Bad Religion', "imagen mini", "imagen banner", 'imagen detalle', 'Bad Religion', 2, 1);-->
+INSERT INTO `events` (`id`, `name`, `mini_image_url`, `banner_image_url`, `detail_image_url`, `description`, `id_category`, `id_venue`) VALUES ('1', 'Taylor Swift', 'https://golden-ticket.s3.amazonaws.com/miniIMG/mini-1.png', 'https://golden-ticket.s3.amazonaws.com/bannerIMG/banner-1.png', 'https://golden-ticket.s3.amazonaws.com/detailIMG/detail-1.png', 'La cantante estadounidense debutará en Argentina este jueves 9 de noviembre y volverá a presentarse el viernes 10 y sábado 11 en el Monumental.', '1', '1');
+INSERT INTO `events` (`id`, `name`, `mini_image_url`, `banner_image_url`, `detail_image_url`, `description`, `id_category`, `id_venue`) VALUES ('2', 'Red Hot Chilli Peppers', 'https://golden-ticket.s3.amazonaws.com/miniIMG/mini-2.png', 'https://golden-ticket.s3.amazonaws.com/bannerIMG/banner-2.png', 'https://golden-ticket.s3.amazonaws.com/detailIMG/detail-2.png', 'Integrada por Anthony Kiedis, Flea, Chad Smith y el eximio guitarrista John Frusciante, que volvió a sumarse después de 10 años, para brindar dos presentaciones en Argentina los días 24 y 26 de noviembre en el Estadio River Plate.', '1', '2');
+INSERT INTO `events` (`id`, `name`, `mini_image_url`, `banner_image_url`, `detail_image_url`, `description`, `id_category`, `id_venue`) VALUES ('3', 'Kevin Johansen + The Nada + Liniers', 'https://golden-ticket.s3.amazonaws.com/miniIMG/mini-3.png', 'https://golden-ticket.s3.amazonaws.com/bannerIMG/banner-3.png', 'https://golden-ticket.s3.amazonaws.com/detailIMG/detail-3.png', 'KEVIN JOHANSEN, junto a su banda The Nada y a Liniers, se presentarán ilustrando sus canciones en vivo con imágenes proyectadas en una gran pantalla de fondo. Música, dibujos, arte y humor se mezclan en este espectáculo único.', '2', '6');
+INSERT INTO `events` (`id`, `name`, `mini_image_url`, `banner_image_url`, `detail_image_url`, `description`, `id_category`, `id_venue`) VALUES ('4', 'Argentina vs Uruguay', 'https://golden-ticket.s3.amazonaws.com/miniIMG/mini-4.png', 'https://golden-ticket.s3.amazonaws.com/bannerIMG/banner-4.png', 'https://golden-ticket.s3.amazonaws.com/detailIMG/detail-4.png', 'El seleccionado campeón del mundo recibe en La Bombonera al uruguayo por la quinta jornada y promete ser un duelo apasionante', '3', '3');
+INSERT INTO `events` (`id`, `name`, `mini_image_url`, `banner_image_url`, `detail_image_url`, `description`, `id_category`, `id_venue`) VALUES ('5', 'The Weeknd', 'https://golden-ticket.s3.amazonaws.com/miniIMG/mini-5.png', 'https://golden-ticket.s3.amazonaws.com/bannerIMG/banner-5.png', 'https://golden-ticket.s3.amazonaws.com/detailIMG/detail-5.png', 'Con una puesta en escena distópica y futurística, Abel Tesfaye demostrará por qué es el artista masculino numero uno del mundo.', '1', '1');
+INSERT INTO `events` (`id`, `name`, `mini_image_url`, `banner_image_url`, `detail_image_url`, `description`, `id_category`, `id_venue`) VALUES ('6', 'Lollapalooza Argentina', 'https://golden-ticket.s3.amazonaws.com/miniIMG/mini-6.png', 'https://golden-ticket.s3.amazonaws.com/bannerIMG/banner-6.png', 'https://golden-ticket.s3.amazonaws.com/detailIMG/detail-6.png', '#LollaAr confirmó uno de los lineups más potentes de su historia para su novena edición a realizarse entre el 15 y el 17 de marzo. Con artistas que vendrán por primera vez a Argentina como Blink-182 y SZA, grandes figuras internacionales', '1', '7');
+INSERT INTO `events` (`id`, `name`, `mini_image_url`, `banner_image_url`, `detail_image_url`, `description`, `id_category`, `id_venue`) VALUES ('7', 'Tan Bionica', 'https://golden-ticket.s3.amazonaws.com/miniIMG/mini-7.png', 'https://golden-ticket.s3.amazonaws.com/bannerIMG/banner-7.png', 'https://golden-ticket.s3.amazonaws.com/detailIMG/detail-7.png', 'La banda se encontraba en un impasse que duró siete años hasta que Chano anunció en marzo la vuelta de Tan Biónica en Lollapalooza y allí aparecieron Bambi, Seby y Diega sobre el escenario para confirmar un show de despedida en un estadio. Sin embargo, la euforia de los fans llevó a que se agoten en tiempo récord 5 shows en 3 estadios distintos.', '1', '9');
+INSERT INTO `events` (`id`, `name`, `mini_image_url`, `banner_image_url`, `detail_image_url`, `description`, `id_category`, `id_venue`) VALUES ('8', 'Veléz vs. Belgrano', 'https://golden-ticket.s3.amazonaws.com/miniIMG/mini-8.png', 'https://golden-ticket.s3.amazonaws.com/bannerIMG/banner-8.png', 'https://golden-ticket.s3.amazonaws.com/detailIMG/detail-8.png', 'Comenzaron a disputarse los Cuartos de Final de la Copa Proyección Sur Finanzas, con los ocho mejores equipos de la competencia.', '3', '8');
+INSERT INTO `events` (`id`, `name`, `mini_image_url`, `banner_image_url`, `detail_image_url`, `description`, `id_category`, `id_venue`) VALUES ('9', 'Talleres vs San Lorenzo', 'https://golden-ticket.s3.amazonaws.com/miniIMG/mini-9.png', 'https://golden-ticket.s3.amazonaws.com/bannerIMG/banner-9.png', 'https://golden-ticket.s3.amazonaws.com/detailIMG/detail-9.png', 'Comenzaron a disputarse los Cuartos de Final de la Copa Proyección Sur Finanzas, con los ocho mejores equipos de la competencia.', '3', '8');
 
+INSERT INTO dates (id, date_time, event_id) VALUES ('1', '2024-10-10 20:00:00', '1');
+INSERT INTO dates (id, date_time, event_id) VALUES ('2', '2024-10-11 20:00:00', '1');
+INSERT INTO dates (id, date_time, event_id) VALUES ('3', '2024-12-24 20:00:00', '2');
+INSERT INTO dates (id, date_time, event_id) VALUES ('4', '2024-03-02 20:00:00', '3');
+INSERT INTO dates (id, date_time, event_id) VALUES ('5', '2024-11-16 20:00:00', '4');
+INSERT INTO dates (id, date_time, event_id) VALUES ('6', '2024-10-18 20:00:00', '5');
+INSERT INTO dates (id, date_time, event_id) VALUES ('7', '2024-10-19 20:00:00', '5');
+INSERT INTO dates (id, date_time, event_id) VALUES ('8', '2024-03-15 20:00:00', '6');
+INSERT INTO dates (id, date_time, event_id) VALUES ('9', '2024-03-16 20:00:00', '6');
+INSERT INTO dates (id, date_time, event_id) VALUES ('10', '2024-03-17 20:00:00', '6');
+INSERT INTO dates (id, date_time, event_id) VALUES ('11', '2024-01-20 20:00:00', '7');
+INSERT INTO dates (id, date_time, event_id) VALUES ('12', '2024-01-15 20:00:00', '8');
+INSERT INTO dates (id, date_time, event_id) VALUES ('13', '2024-01-15 20:00:00', '9');
 
-<!--INSERT INTO dates(date_time, event_id) VALUES('2024-12-12T11:00:00',1);-->
-<!--INSERT INTO dates(date_time, event_id) VALUES('2024-12-12T10:00:00',1);-->
-<!--INSERT INTO dates(date_time, event_id) VALUES('2024-12-12T09:00:00',1); -->
-
+INSERT INTO ticket_types (id, name, stock, date_time_id, url_image) VALUES ('1', 'Campo Trasero', '20000', '1', 'https://pbs.twimg.com/media/DtfwYtlWwAAnUfi?format=jpg&name=900x900');
+INSERT INTO ticket_types (id, name, stock, date_time_id, url_image) VALUES ('2', 'Campo Delantero', '30000', '1', 'https://pbs.twimg.com/media/DtfwYtlWwAAnUfi?format=jpg&name=900x900');
+INSERT INTO ticket_types (id, name, stock, date_time_id, url_image) VALUES ('3', 'Platea San Martin Alta', '5000', '1', 'https://pbs.twimg.com/media/DtfwYtlWwAAnUfi?format=jpg&name=900x900');
+INSERT INTO ticket_types (id, name, stock, date_time_id, url_image) VALUES ('4', 'Platea San Martin Baja', '5000', '1', 'https://pbs.twimg.com/media/DtfwYtlWwAAnUfi?format=jpg&name=900x900');
+INSERT INTO ticket_types (id, name, stock, date_time_id, url_image) VALUES ('5', 'Platea Belgrano Alta', '5000', '1', 'https://pbs.twimg.com/media/DtfwYtlWwAAnUfi?format=jpg&name=900x900');
+INSERT INTO ticket_types (id, name, stock, date_time_id, url_image) VALUES ('6', 'Platea Belgrano Baja', '5000', '1', 'https://pbs.twimg.com/media/DtfwYtlWwAAnUfi?format=jpg&name=900x900');
+INSERT INTO ticket_types (id, name, stock, date_time_id, url_image) VALUES ('7', 'Campo Trasero', '20000', '2', 'https://pbs.twimg.com/media/DtfwYtlWwAAnUfi?format=jpg&name=900x900');
+INSERT INTO ticket_types (id, name, stock, date_time_id, url_image) VALUES ('8', 'Campo Delantero', '30000', '2', 'https://pbs.twimg.com/media/DtfwYtlWwAAnUfi?format=jpg&name=900x900');
+INSERT INTO ticket_types (id, name, stock, date_time_id, url_image) VALUES ('9', 'Platea San Martin Alta', '5000', '2', 'https://pbs.twimg.com/media/DtfwYtlWwAAnUfi?format=jpg&name=900x900');
+INSERT INTO ticket_types (id, name, stock, date_time_id, url_image) VALUES ('10', 'Platea San Martin Baja', '5000', '2', 'https://pbs.twimg.com/media/DtfwYtlWwAAnUfi?format=jpg&name=900x900');
+INSERT INTO ticket_types (id, name, stock, date_time_id, url_image) VALUES ('11', 'Platea Belgrano Alta', '5000', '2', 'https://pbs.twimg.com/media/DtfwYtlWwAAnUfi?format=jpg&name=900x900');
+INSERT INTO ticket_types (id, name, stock, date_time_id, url_image) VALUES ('12', 'Platea Belgrano Baja', '5000', '2', 'https://pbs.twimg.com/media/DtfwYtlWwAAnUfi?format=jpg&name=900x900');
+INSERT INTO ticket_types (id, name, stock, date_time_id, url_image) VALUES ('13', 'Campo Trasero', '20000', '3', 'https://pbs.twimg.com/media/DtfwYtlWwAAnUfi?format=jpg&name=900x900');
+INSERT INTO ticket_types (id, name, stock, date_time_id, url_image) VALUES ('14', 'Campo Delantero', '30000', '3', 'https://pbs.twimg.com/media/DtfwYtlWwAAnUfi?format=jpg&name=900x900');
+INSERT INTO ticket_types (id, name, stock, date_time_id, url_image) VALUES ('15', 'Platea San Martin Alta', '5000', '3', 'https://pbs.twimg.com/media/DtfwYtlWwAAnUfi?format=jpg&name=900x900');
+INSERT INTO ticket_types (id, name, stock, date_time_id, url_image) VALUES ('16', 'Platea San Martin Baja', '5000', '3', 'https://pbs.twimg.com/media/DtfwYtlWwAAnUfi?format=jpg&name=900x900');
+INSERT INTO ticket_types (id, name, stock, date_time_id, url_image) VALUES ('17', 'Platea Belgrano Alta', '5000', '3', 'https://pbs.twimg.com/media/DtfwYtlWwAAnUfi?format=jpg&name=900x900');
+INSERT INTO ticket_types (id, name, stock, date_time_id, url_image) VALUES ('18', 'Platea Belgrano Baja', '5000', '3', 'https://pbs.twimg.com/media/DtfwYtlWwAAnUfi?format=jpg&name=900x900');
+INSERT INTO ticket_types (id, name, stock, date_time_id, url_image) VALUES ('19', 'General', '20000', '4', 'https://pbs.twimg.com/media/DtfwYtlWwAAnUfi?format=jpg&name=900x900');
+INSERT INTO ticket_types (id, name, stock, date_time_id, url_image) VALUES ('20', 'Platea', '5000', '4', 'https://pbs.twimg.com/media/DtfwYtlWwAAnUfi?format=jpg&name=900x900');
+INSERT INTO ticket_types (id, name, stock, date_time_id, url_image) VALUES ('21', 'Platea Alta', '15000', '5', 'https://pbs.twimg.com/media/DtfwYtlWwAAnUfi?format=jpg&name=900x900');
+INSERT INTO ticket_types (id, name, stock, date_time_id, url_image) VALUES ('22', 'Platea Baja', '10000', '5', 'https://pbs.twimg.com/media/DtfwYtlWwAAnUfi?format=jpg&name=900x900');
+INSERT INTO ticket_types (id, name, stock, date_time_id, url_image) VALUES ('23', 'Plate Alta Lateral', '10000', '5', 'https://pbs.twimg.com/media/DtfwYtlWwAAnUfi?format=jpg&name=900x900');
+INSERT INTO ticket_types (id, name, stock, date_time_id, url_image) VALUES ('24', 'Platea Baja Lateral', '7000', '5', 'https://pbs.twimg.com/media/DtfwYtlWwAAnUfi?format=jpg&name=900x900');
+INSERT INTO ticket_types (id, name, stock, date_time_id, url_image) VALUES ('25', 'Campo Trasero', '20000', '6', 'https://pbs.twimg.com/media/DtfwYtlWwAAnUfi?format=jpg&name=900x900');
+INSERT INTO ticket_types (id, name, stock, date_time_id, url_image) VALUES ('26', 'Campo Delantero', '30000', '6', 'https://pbs.twimg.com/media/DtfwYtlWwAAnUfi?format=jpg&name=900x900');
+INSERT INTO ticket_types (id, name, stock, date_time_id, url_image) VALUES ('27', 'Platea San Martin Alta', '5000', '6', 'https://pbs.twimg.com/media/DtfwYtlWwAAnUfi?format=jpg&name=900x900');
+INSERT INTO ticket_types (id, name, stock, date_time_id, url_image) VALUES ('28', 'Platea San Martin Baja', '5000', '6', 'https://pbs.twimg.com/media/DtfwYtlWwAAnUfi?format=jpg&name=900x900');
+INSERT INTO ticket_types (id, name, stock, date_time_id, url_image) VALUES ('29', 'Platea Belgrano Alta', '5000', '6', 'https://pbs.twimg.com/media/DtfwYtlWwAAnUfi?format=jpg&name=900x900');
+INSERT INTO ticket_types (id, name, stock, date_time_id, url_image) VALUES ('30', 'Platea Belgrano Baja', '5000', '6', 'https://pbs.twimg.com/media/DtfwYtlWwAAnUfi?format=jpg&name=900x900');
+INSERT INTO ticket_types (id, name, stock, date_time_id, url_image) VALUES ('31', 'Campo Trasero', '20000', '7', 'https://pbs.twimg.com/media/DtfwYtlWwAAnUfi?format=jpg&name=900x900');
+INSERT INTO ticket_types (id, name, stock, date_time_id, url_image) VALUES ('32', 'Campo Delantero', '30000', '7', 'https://pbs.twimg.com/media/DtfwYtlWwAAnUfi?format=jpg&name=900x900');
+INSERT INTO ticket_types (id, name, stock, date_time_id, url_image) VALUES ('33', 'Platea San Martin Alta', '5000', '7', 'https://pbs.twimg.com/media/DtfwYtlWwAAnUfi?format=jpg&name=900x900');
+INSERT INTO ticket_types (id, name, stock, date_time_id, url_image) VALUES ('34', 'Platea San Martin Baja', '5000', '7', 'https://pbs.twimg.com/media/DtfwYtlWwAAnUfi?format=jpg&name=900x900');
+INSERT INTO ticket_types (id, name, stock, date_time_id, url_image) VALUES ('35', 'Platea Belgrano Alta', '5000', '7', 'https://pbs.twimg.com/media/DtfwYtlWwAAnUfi?format=jpg&name=900x900');
+INSERT INTO ticket_types (id, name, stock, date_time_id, url_image) VALUES ('36', 'Platea Belgrano Baja', '5000', '7', 'https://pbs.twimg.com/media/DtfwYtlWwAAnUfi?format=jpg&name=900x900');
+INSERT INTO ticket_types (id, name, stock, date_time_id, url_image) VALUES ('37', '3 Days Pass - General', '100000', '8', 'https://pbs.twimg.com/media/DtfwYtlWwAAnUfi?format=jpg&name=900x900');
+INSERT INTO ticket_types (id, name, stock, date_time_id, url_image) VALUES ('38', '3 Days Pass - VIP', '100000', '8', 'https://pbs.twimg.com/media/DtfwYtlWwAAnUfi?format=jpg&name=900x900');
+INSERT INTO ticket_types (id, name, stock, date_time_id, url_image) VALUES ('39', '4 Days Pass - General', '100000', '9', 'https://pbs.twimg.com/media/DtfwYtlWwAAnUfi?format=jpg&name=900x900');
+INSERT INTO ticket_types (id, name, stock, date_time_id, url_image) VALUES ('40', '4 Days Pass - VIP', '100000', '9', 'https://pbs.twimg.com/media/DtfwYtlWwAAnUfi?format=jpg&name=900x900');
+INSERT INTO ticket_types (id, name, stock, date_time_id, url_image) VALUES ('41', '5 Days Pass - General', '100000', '10', 'https://pbs.twimg.com/media/DtfwYtlWwAAnUfi?format=jpg&name=900x900');
+INSERT INTO ticket_types (id, name, stock, date_time_id, url_image) VALUES ('42', '5 Days Pass - VIP', '100000', '10', 'https://pbs.twimg.com/media/DtfwYtlWwAAnUfi?format=jpg&name=900x900');
+INSERT INTO ticket_types (id, name, stock, date_time_id, url_image) VALUES ('43', 'Popular', '20000', '12', 'https://pbs.twimg.com/media/DtfwYtlWwAAnUfi?format=jpg&name=900x900');
+INSERT INTO ticket_types (id, name, stock, date_time_id, url_image) VALUES ('44', 'Visitante', '20000', '12', 'https://pbs.twimg.com/media/DtfwYtlWwAAnUfi?format=jpg&name=900x900');
+INSERT INTO ticket_types (id, name, stock, date_time_id, url_image) VALUES ('45', 'Popular', '20000', '13', 'https://pbs.twimg.com/media/DtfwYtlWwAAnUfi?format=jpg&name=900x900');
+INSERT INTO ticket_types (id, name, stock, date_time_id, url_image) VALUES ('46', 'Visitante', '20000', '13', 'https://pbs.twimg.com/media/DtfwYtlWwAAnUfi?format=jpg&name=900x900');
+INSERT INTO ticket_types (id, name, stock, date_time_id, url_image) VALUES ('47', 'Campo Trasero', '20000', '11', 'https://pbs.twimg.com/media/DtfwYtlWwAAnUfi?format=jpg&name=900x900');
+INSERT INTO ticket_types (id, name, stock, date_time_id, url_image) VALUES ('48', 'Campo Delantero', '30000', '11', 'https://pbs.twimg.com/media/DtfwYtlWwAAnUfi?format=jpg&name=900x900');
