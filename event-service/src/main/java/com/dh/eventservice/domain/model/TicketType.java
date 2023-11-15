@@ -12,7 +12,7 @@ public class TicketType {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private String description;
+    private String name;
     private Integer stock;
     private String urlImage;
 

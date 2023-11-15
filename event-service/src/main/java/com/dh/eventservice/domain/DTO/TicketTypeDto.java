@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 public class TicketTypeDto {
 
     private Integer id;
-    private String description;
+    private String name;
     private Integer stock;
     private String urlImage;
 }

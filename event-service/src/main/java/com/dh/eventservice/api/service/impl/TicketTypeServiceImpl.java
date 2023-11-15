@@ -92,8 +92,8 @@ public class TicketTypeServiceImpl implements TicketTypeService {
 
     private TicketType updateDb(TicketType ticket, TicketTypeDto ticketDTO) {
 
-        if (ticketDTO.getDescription() != null) {
-            ticket.setDescription(ticketDTO.getDescription());
+        if (ticketDTO.getName() != null) {
+            ticket.setName(ticketDTO.getName());
         }
 
         if (ticketDTO.getUrlImage() != null) {
