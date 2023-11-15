@@ -11,5 +11,6 @@ public class TicketTypeDto {
 
     private Integer id;
     private String description;
+    private Integer stock;
     private String urlImage;
 }

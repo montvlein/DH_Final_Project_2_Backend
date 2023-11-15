@@ -13,6 +13,10 @@ public class TicketType {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String description;
+    private Integer stock;
     private String urlImage;
 
+    public void setStock(int stock) {
+        this.stock = stock;
+    }
 }

@@ -9,6 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Set;
 
 @RestController
@@ -33,8 +34,8 @@ public class TicketTypeController {
 
     //Listar todas las ticketType
     @GetMapping
-    public ResponseEntity<Set<TicketTypeDto>> listTicketType() {
-        Set<TicketTypeDto> listarTicketType = ticketTypeService.getAllTicketType();
+    public ResponseEntity<List<TicketTypeDto>> listTicketType() {
+        List<TicketTypeDto> listarTicketType = ticketTypeService.getAllTicketType();
         return ResponseEntity.ok(listarTicketType);
     }
 

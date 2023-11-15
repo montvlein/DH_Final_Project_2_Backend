@@ -12,9 +12,13 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.Set;
+
+@Service
 
 public class TicketTypeServiceImpl implements TicketTypeService {
 
@@ -65,8 +69,11 @@ public class TicketTypeServiceImpl implements TicketTypeService {
     }
 
     @Override
-    public Set<TicketTypeDto> getAllTicketType() {
-        return null;
+    public List<TicketTypeDto> getAllTicketType() {
+        List<TicketType> tickets = ticketTypeRepository.findAll();
+        logger.info("Se listaron todos los tipos de ticket");
+
+        return mapper.getModelMapper().map(tickets, List.class);
     }
 
     @Override
@@ -81,6 +88,23 @@ public class TicketTypeServiceImpl implements TicketTypeService {
             throw new ResourceNotFoundExceptions("El ticketType no pudo ser actualizado");
         }
         return response;
+    }
+
+    private TicketType updateDb(TicketType ticket, TicketTypeDto ticketDTO) {
+
+        if (ticketDTO.getDescription() != null) {
+            ticket.setDescription(ticketDTO.getDescription());
+        }
+
+        if (ticketDTO.getUrlImage() != null) {
+            ticket.setUrlImage(ticketDTO.getUrlImage());
+        }
+
+        if (ticketDTO.getStock() != null) {
+            ticket.setStock(ticketDTO.getStock());
+        }
+
+        return ticket;
     }
 
 

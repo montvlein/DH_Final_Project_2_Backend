@@ -4,6 +4,7 @@ import com.dh.eventservice.api.Exceptions.ResourceNotFoundExceptions;
 import com.dh.eventservice.domain.DTO.TicketTypeDto;
 import com.dh.eventservice.domain.model.TicketType;
 
+import java.util.List;
 import java.util.Set;
 
 public interface TicketTypeService {
@@ -17,5 +18,5 @@ public interface TicketTypeService {
 
     String update(TicketTypeDto ticketTypeDto) throws ResourceNotFoundExceptions;
 
-    Set<TicketTypeDto> getAllTicketType();
+    List<TicketTypeDto> getAllTicketType();
 }
