@@ -18,6 +18,7 @@ services:
       - "8081:8081"
     depends_on:
       - eureka-server
+      - mysql
 
   user-api:
     build: ./api-user # Asegúrate de tener un Dockerfile aquí
@@ -25,10 +26,8 @@ services:
       - "8082:8082"
     depends_on:
       - eureka-server
-#  config-service:
-#    build: config-server
-#    ports:
-#      - "8888:8888"
+      - mysql
+
   mysql:
     image: mysql:5.7
     restart: always
