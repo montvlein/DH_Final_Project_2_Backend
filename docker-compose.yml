@@ -1,5 +1,30 @@
 version: '3.3'
 services:
+  eureka-server:
+    build: ./eureka # Asegúrate de tener un Dockerfile aquí
+    ports:
+      - "8761:8761"
+
+  gateway:
+    build: ./gateway # Asegúrate de tener un Dockerfile aquí
+    ports:
+      - "8080:8080"
+    depends_on:
+      - eureka-server
+
+  event-api:
+    build: ./event-service # Asegúrate de tener un Dockerfile aquí
+    ports:
+      - "8081:8081"
+    depends_on:
+      - eureka-server
+
+  user-api:
+    build: ./api-user # Asegúrate de tener un Dockerfile aquí
+    ports:
+      - "8082:8082"
+    depends_on:
+      - eureka-server
 #  config-service:
 #    build: config-server
 #    ports:
