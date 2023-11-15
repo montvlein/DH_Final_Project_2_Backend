@@ -16,8 +16,8 @@ public class UserResponseDto {
     private String lastName;
     private String mail;
     private String birthDate;
-    private int phone;
+    private String phone;
     private String role;
-    private String idType;
-    private int idNumber;
+    private String documentType;
+    private String documentNumber;
 }

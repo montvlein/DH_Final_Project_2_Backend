@@ -106,12 +106,12 @@ public class UserServiceImpl implements IUserService {
         if (usuario.getPhone() != null) {
             userDto.setPhone(usuario.getPhone());
         }
-        if (usuario.getIdNumber() != null) {
-            userDto.setIdNumber(usuario.getIdNumber().replaceAll("[.-]", ""));
+        if (usuario.getDocumentNumber() != null) {
+            userDto.setDocumentNumber(usuario.getDocumentNumber().replaceAll("[.-]", ""));
         }
 
-        if (usuario.getIdType() != null) {
-            userDto.setIdType(usuario.getIdType().toUpperCase());
+        if (usuario.getDocumentType() != null) {
+            userDto.setDocumentType(usuario.getDocumentType().toUpperCase());
         }
 
         User savedUser = userRepository.save(userDto);

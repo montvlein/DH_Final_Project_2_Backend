@@ -1,14 +1,11 @@
 package com.DH.apiuser.domain.model;
 
-import com.DH.apiuser.util.DocumentType;
-import com.DH.apiuser.util.Role;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
 @Data
@@ -35,9 +32,9 @@ public class User {
     @Column(nullable = true)
     private String role;
     @Column(nullable = true)
-    private String idType;
+    private String documentType;
     @Column(nullable = true)
-    private String idNumber;
+    private String documentNumber;
 
     public User(String firstName, String lastName, String mail, String password, String role) {
         this.firstName = firstName;
