@@ -21,25 +21,33 @@ spring:
 
 info:
   app:
-    name: ${spring.application.name}
+    name: gateway
 
 # Eureka configuration
 eureka:
   instance:
-    hostname: gateway
+    hostname: localhost
     instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
   client:
     registerWithEureka: false
     fetchRegistry: true
     serviceUrl:
-      defaultZone: http://eureka-server:8761/eureka/
+      defaultZone: http://localhost:8761/eureka/
 
 ## Management configuration
 management:
+  health:
+    circuitbreakers:
+      enable: true
+  endpoint:
+    health:
+      show-details: always
+    gateway:
+      enable: true
   endpoints:
     web:
       exposure:
-        include: "*"
+        include: gateway, circuitbreakers, circuitbreakerevents, health, info, ratelimiters, metrics
 ## Logging configuration
 logging:
   level:

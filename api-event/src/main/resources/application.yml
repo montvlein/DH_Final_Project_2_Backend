@@ -18,17 +18,21 @@ spring:
         hbm2ddl:
           import_files: event-service.sql
 
+info:
+  application:
+    name: api-event
+
 eureka:
   health-check:
     enabled: true
   instance:
-    hostname: api-event
+    hostname: localhost
     instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
   client:
     registerWithEureka: true
     fetchRegistry: true
     serviceUrl:
-      defaultZone: http://eureka-server:8761/eureka/
+      defaultZone: http://localhost:8761/eureka/
 
 springdoc:
   api-docs:
