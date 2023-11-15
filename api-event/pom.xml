@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.dh</groupId>
-	<artifactId>event-service</artifactId>
+	<artifactId>api-event</artifactId>
 	<version>1.0.0-SNAPSHOT</version>
 	<name>Event Service</name>
 	<description>Event Service for GoldenTicket</description>
