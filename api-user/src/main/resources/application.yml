@@ -6,6 +6,13 @@ spring:
     name: event-service
   datasource:
     driverClassName: com.mysql.cj.jdbc.Driver
+
+    # DB EN AWS
+#    url: jdbc:mysql://db.ctd.academy:3306/pi21023c01_GRUPO6
+#    username: pi21023c01_GRUPO6
+#    password: toXae4Pi
+
+    #DB LOCAL
     url: jdbc:mysql://localhost:3333/event-db
     username: event-user
     password: event-password
