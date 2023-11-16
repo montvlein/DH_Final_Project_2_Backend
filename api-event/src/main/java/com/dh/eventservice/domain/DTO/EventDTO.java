@@ -14,6 +14,7 @@ public class EventDTO {
     private Integer id;
     private List<DateTimeDTO> dateList;
     private String description;
+    private String description_title;
     private String name;
     private VenueDTO venue;
     private String miniImageUrl;

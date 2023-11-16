@@ -29,6 +29,7 @@ public class Event {
     private List<DateTime> dateList;
     @Lob
     private String description;
+    private String description_title;
     private String name;
     private String miniImageUrl;
     private String bannerImageUrl;

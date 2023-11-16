@@ -1,10 +1,12 @@
 package com.dh.eventservice.domain.DTO;
 
+import com.dh.eventservice.domain.model.TicketType;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -13,5 +15,5 @@ public class DateTimeDTO {
 
     private Integer id;
     private LocalDateTime dateTime;
-
+    private List<TicketType> ticketTypeList;
 }
