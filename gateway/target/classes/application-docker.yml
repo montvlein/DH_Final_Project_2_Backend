@@ -4,14 +4,14 @@ spring:
     oauth2:
       resource-server:
         jwt:
-          jwk-set-uri: http://${KEYCLOAK_HOST}:8080/realms/digitalMoneyHouse/protocol/openid-connect/certs
+          jwk-set-uri: http://${KEYCLOAK_HOST}:8080/realms
       client:
         provider:
           keycloak:
-            authorization-uri: http://${KEYCLOAK_FRONT_HOST}:8080/realms/digitalMoneyHouse/protocol/openid-connect/auth
-            token-uri: http://${KEYCLOAK_HOST}:8080/realms/digitalMoneyHouse/protocol/openid-connect/token
-            user-info-uri: http://${KEYCLOAK_HOST}:8080/realms/digitalMoneyHouse/protocol/openid-connect/userinfo
-            jwk-set-uri: http://${KEYCLOAK_HOST}:8080/realms/digitalMoneyHouse/protocol/openid-connect/certs
+            authorization-uri: http://${KEYCLOAK_FRONT_HOST}:8080/realms
+            token-uri: http://${KEYCLOAK_HOST}:8080/realms
+            user-info-uri: http://${KEYCLOAK_HOST}:8080/realms
+            jwk-set-uri: http://${KEYCLOAK_HOST}:8080/realms
         registration:
           gateway:
             redirectUri: http://${KEYCLOAK_FRONT_HOST}:8081/login/oauth2/code/keycloak

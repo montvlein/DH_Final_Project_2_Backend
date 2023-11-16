@@ -1,9 +1,9 @@
 server:
-  port: ${PORT:${SERVER_PORT:8081}}
+  port: ${PORT:${SERVER_PORT:8082}}
 
 spring:
   application:
-    name: event-service
+    name: api-user
   datasource:
     driverClassName: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3333/event-db
@@ -17,3 +17,18 @@ spring:
       hibernate:
         hbm2ddl:
           import_files: user.sql
+
+
+info:
+  application:
+    name: api-user
+
+#eureka:
+#  instance:
+#    hostname: localhost
+#    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+#  client:
+#    registerWithEureka: true
+#    fetchRegistry: true
+#    serviceUrl:
+#      defaultZone: http://localhost:8761/eureka/

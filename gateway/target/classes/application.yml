@@ -2,66 +2,41 @@
 
 # Server configuration
 server:
-  port: 8081
+  port: ${PORT:${SERVER_PORT:8080}}
 
 # Spring configuration
 spring:
   application:
-    name: ms-gateway
-  security:
-    oauth2:
-      resource-server:
-        jwt:
-          jwk-set-uri: http://keycloak:8080/realms/
-      client:
-        provider:
-          keycloak:
-            authorization-uri: http://keycloak:8080/
-            token-uri: http://keycloak:8080/realms
-            user-name-attribute: preferred_username
-            user-info-uri: http://keycloak:8080/realms
-            jwk-set-uri: http://keycloak:8080/realms
-            user-info-authentication-method: header
-        registration:
-          gateway:
-            authorizationGrantType: authorization_code
-            redirectUri: http://localhost:8081/login/oauth2/code/keycloak
-            provider: keycloak
-            clientId: gateway
-            clientSecret:
-            scope: openid, profile
+    name: gateway
   cloud:
     gateway:
+      discovery:
+        locator:
+          enabled: true
       routes:
-        - id: ms-accounts
-          uri: lb://ms-accounts
+        - id: api-event
+          uri: lb://api-event
           predicates:
-            - Path=/api/v1/accounts/**
-        - id: ms-user
-          uri: lb://ms-user
+            - Path=/**
+        - id: api-user
+          uri: lb://api-user
           predicates:
-            - Path=/api/v1/users/**
-        - id: ms-cards
-          uri: lb://ms-cards
-          predicates:
-            - Path=/api/v1/cards/**
-        - id: ms-middleware
-          uri: lb://ms-middleware
-          predicates:
-            - Path=/api/v1/transactions/**
-      default-filters:
-        - TokenRelay=
-        - StripPrefix=2
-#        - name: CircuitBreaker
-#          args:
-#            name: circuitBreaker
-#            fallbackUri: forward:/api/v1/fallback
+            - Path=/user/**
+
+info:
+  app:
+    name: gateway
 
 # Eureka configuration
 eureka:
+  instance:
+    hostname: localhost
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
   client:
+    registerWithEureka: false
+    fetchRegistry: true
     serviceUrl:
-      defaultZone: http://localhost:8761/eureka
+      defaultZone: http://localhost:8761/eureka/
 
 ## Management configuration
 management:

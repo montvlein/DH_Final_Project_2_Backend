@@ -1,8 +1,8 @@
 server:
-  port: ${PORT:${SERVER_PORT:8080}}
+  port: ${PORT:${SERVER_PORT:8081}}
 spring:
   application:
-    name: event-service
+    name: api-event
   datasource:
     driverClassName: com.mysql.cj.jdbc.Driver
 
@@ -26,7 +26,9 @@ spring:
 #    username: ${MYSQL_USR}
 #    password: ${MYSQL_PWD}
 
-
+info:
+  application:
+    name: api-event
 
   jpa:
     hibernate.ddl-auto: create-drop
@@ -62,15 +64,15 @@ spring:
 #    env:
 #      enabled: true
 
-#eureka:
-#  instance:
-#    hostname: localhost
-#    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
-#  client:
-#    registerWithEureka: true
-#    fetchRegistry: true
-#    serviceUrl:
-#      defaultZone: http://localhost:8761/eureka/
+eureka:
+  instance:
+    hostname: localhost
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
 
 
 springdoc:
