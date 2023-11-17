@@ -1,0 +1,19 @@
+server:
+  port: ${PORT:${SERVER_PORT:8082}}
+
+spring:
+  application:
+    name: subscription-service
+  datasource:
+    driverClassName: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3333/event-db
+    username: event-user
+    password: event-password
+  jpa:
+    hibernate.ddl-auto: create-drop
+    generate-ddl: true
+    show-sql: true
+    properties:
+      hibernate:
+        hbm2ddl:
+          import_files: subscription-service.sql
