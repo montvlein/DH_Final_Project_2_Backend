@@ -15,7 +15,7 @@ import com.dh.eventservice.domain.model.Event;
 import java.util.List;
 
 @RestController
-@RequestMapping("/venue")
+@RequestMapping("event/venue")
 public class VenueController {
 
     @Autowired

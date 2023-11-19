@@ -1,8 +1,8 @@
 server:
-  port: ${PORT:${SERVER_PORT:8080}}
+  port: ${PORT:${SERVER_PORT:0}}
 spring:
   application:
-    name: event-service
+    name: api-event
   datasource:
     driverClassName: com.mysql.cj.jdbc.Driver
 
@@ -26,8 +26,6 @@ spring:
 #    username: ${MYSQL_USR}
 #    password: ${MYSQL_PWD}
 
-
-
   jpa:
     hibernate.ddl-auto: create-drop
     database-platform: org.hibernate.dialect.MySQL5Dialect
@@ -38,6 +36,11 @@ spring:
         dialect: org.hibernate.dialect.MySQL5Dialect
         hbm2ddl:
           import_files: event-service.sql
+
+
+info:
+  application:
+    name: api-event
 #  zipkin:
 #    base-url: http://localhost:9411/
 #    enabled: true
@@ -62,17 +65,19 @@ spring:
 #    env:
 #      enabled: true
 
-#eureka:
-#  instance:
-#    hostname: localhost
-#    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
-#  client:
-#    registerWithEureka: true
-#    fetchRegistry: true
-#    serviceUrl:
-#      defaultZone: http://localhost:8761/eureka/
+eureka:
+  instance:
+    hostname: localhost
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
 
 
 springdoc:
   api-docs:
-    path=/api-docs:
+    path: /event/api-docs
+  swagger-ui:
+    path: /event/swagger
