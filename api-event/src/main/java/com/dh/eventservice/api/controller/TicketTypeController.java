@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.Set;
 
 @RestController
-@RequestMapping("/ticketType")
+@RequestMapping("event/ticketType")
 public class TicketTypeController {
     @Autowired
     private TicketTypeService ticketTypeService;
