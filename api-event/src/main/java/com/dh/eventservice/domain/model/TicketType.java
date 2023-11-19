@@ -15,6 +15,7 @@ public class TicketType {
     private String name;
     private Integer stock;
     private String urlImage;
+    private Float price;
 
     public void setStock(int stock) {
         this.stock = stock;
