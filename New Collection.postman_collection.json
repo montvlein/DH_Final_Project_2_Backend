@@ -1,0 +1,94 @@
+{
+	"info": {
+		"_postman_id": "d16ff125-bf5e-4615-b25c-9fa7ca593bf7",
+		"name": "New Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "18093337"
+	},
+	"item": [
+		{
+			"name": "tokens",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "apikey",
+						"value": "4ae76f00234843d1af5994ed4674fd76",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"card_number\": \"4507990000004905\",\r\n  \"card_expiration_month\": \"08\",\r\n  \"card_expiration_year\": \"25\",\r\n  \"security_code\": \"456\",\r\n  \"card_holder_name\": \"nico SM\",\r\n  \"card_holder_identification\": {\r\n    \"type\": \"dni\",\r\n    \"number\": \"25123456\"\r\n  }\r\n}"
+				},
+				"url": {
+					"raw": "https://developers.decidir.com/api/v2/tokens",
+					"protocol": "https",
+					"host": [
+						"developers",
+						"decidir",
+						"com"
+					],
+					"path": [
+						"api",
+						"v2",
+						"tokens"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "payments",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "apikey",
+						"value": "3891f691dc4f40b6941a25a68d17c7f4",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \r\n  \"token\": \"66edfa7a-bb39-452a-b108-6ba9dd360fc0\",\r\n  \"site_transaction_id\": \"Transa 3\",\r\n  \"payment_method_id\": 1,\r\n  \"bin\": \"450799\",\r\n  \"amount\": 2000,\r\n  \"currency\": \"ARS\",\r\n  \"installments\": 1,\r\n  \"payment_type\": \"single\",\r\n  \"sub_payments\": []\r\n  }"
+				},
+				"url": {
+					"raw": "https://developers.decidir.com/api/v2/payments?apikey=3891f691dc4f40b6941a25a68d17c7f4&content-type=application/json",
+					"protocol": "https",
+					"host": [
+						"developers",
+						"decidir",
+						"com"
+					],
+					"path": [
+						"api",
+						"v2",
+						"payments"
+					],
+					"query": [
+						{
+							"key": "apikey",
+							"value": "3891f691dc4f40b6941a25a68d17c7f4"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
