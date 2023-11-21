@@ -42,8 +42,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
 
         System.out.println("*******************************************************************");
-        http.cors().and().csrf().disable()
-                //http.headers().frameOptions().sameOrigin().and().cors().and().csrf().disable()
+//        http.cors().and().csrf().disable()
+                http.headers().frameOptions().sameOrigin().and().cors().and().csrf().disable()
                 .authorizeRequests()
                 //.antMatchers("/**").permitAll()//poner el controller sin token
                 .antMatchers("/swagger-ui/**", "/v3/api-docs/**").permitAll()

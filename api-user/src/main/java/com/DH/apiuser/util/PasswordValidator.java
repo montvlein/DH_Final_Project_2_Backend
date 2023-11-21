@@ -5,7 +5,8 @@ import java.util.regex.Pattern;
 
 public class PasswordValidator {
     public static boolean isValidPassword(String password) {
-        String regex = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)[A-Za-z\\d@#$%^&+=.]{8,}$";
+//        String regex = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)[A-Za-z\\d@#$%^&+=.]{8,}$";
+        String regex = "^.{8,}$";
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(password);
 
