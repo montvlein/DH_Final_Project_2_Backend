@@ -1,5 +1,5 @@
 # DH_Final_Project_2_Backend
-pasos pasra postman
+pasos para postman
 1) send a
  / Tokens 
 paso 2) para el send a
