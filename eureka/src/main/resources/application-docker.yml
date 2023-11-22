@@ -1,16 +1,40 @@
-#--------------- Configuration Docker ----------------------#
+#--------------- Configuration Local ----------------------#
 
 # Server configuration
 server:
-  port: 8761
+  port: ${PORT:8761}
 
 # Spring configuration
 spring:
   application:
-    name: eureka-server-service
+    name: eureka-server
 
 # Eureka configuration
 eureka:
+  instance:
+    hostname: localhost
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
   client:
-    fetch-registry: false
-    register-with-eureka: false
+    registerWithEureka: false
+    fetchRegistry: false
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+
+
+
+##--------------- Configuration Docker ----------------------#
+#
+## Server configuration
+#server:
+#  port: 8761
+#
+## Spring configuration
+#spring:
+#  application:
+#    name: eureka-server-service
+#
+## Eureka configuration
+#eureka:
+#  client:
+#    fetch-registry: false
+#    register-with-eureka: false

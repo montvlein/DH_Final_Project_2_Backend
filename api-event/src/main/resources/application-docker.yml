@@ -1,0 +1,83 @@
+server:
+  port: ${PORT:${SERVER_PORT:0}}
+spring:
+  application:
+    name: api-event
+  datasource:
+    driverClassName: com.mysql.cj.jdbc.Driver
+
+
+# DB EN AWS
+    url: jdbc:mysql://db.ctd.academy:3306/pi21023c01_GRUPO6
+    username: pi21023c01_GRUPO6
+    password: toXae4Pi
+
+# DB LOCAL
+#    url: jdbc:mysql://localhost:3333/event-db
+#    username: event-user
+#    password: event-password
+
+# OTRAS PRUEBAS
+#    url: jdbc:mysql://${MYSQL_HOST:localhost:3333}/${MYSQL_DB:event-db}
+#    username: ${MYSQL_USR:event-user}
+#    password: ${MYSQL_PWD:event-password}
+
+#    url: jdbc:mysql://${MYSQL_HOST}/${MYSQL_DB}
+#    username: ${MYSQL_USR}
+#    password: ${MYSQL_PWD}
+
+  jpa:
+    hibernate.ddl-auto: create-drop
+    database-platform: org.hibernate.dialect.MySQL5Dialect
+    generate-ddl: true
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5Dialect
+        hbm2ddl:
+          import_files: event-service.sql
+
+
+info:
+  application:
+    name: api-event
+#  zipkin:
+#    base-url: http://localhost:9411/
+#    enabled: true
+#  rabbitmq:
+#    username: guest
+#    password: guest
+#    host: localhost
+#    port: 5672
+
+#info:
+#  application:
+#    name: ${spring.application.name}
+#    description: Movie Service for Movies Application
+#    version: 1.0.0
+
+#management:
+#  endpoints:
+#    web:
+#      exposure:
+#        include: info, health
+#  info:
+#    env:
+#      enabled: true
+
+eureka:
+  instance:
+    hostname: event
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://eureka:8761/eureka/
+
+
+springdoc:
+  api-docs:
+    path: /event/api-docs
+  swagger-ui:
+    path: /event/swagger
