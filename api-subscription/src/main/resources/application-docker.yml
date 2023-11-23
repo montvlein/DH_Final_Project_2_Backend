@@ -3,7 +3,7 @@ server:
 
 spring:
   application:
-    name: subscription-service
+    name: api-subscription
   datasource:
     driverClassName: com.mysql.cj.jdbc.Driver
 

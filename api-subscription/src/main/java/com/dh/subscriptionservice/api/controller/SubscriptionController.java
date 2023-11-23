@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Set;
 
 @RestController
-@RequestMapping("/subscription")
+@RequestMapping("subscription")
 public class SubscriptionController {
 	@Autowired
 	private SubscriptionService subscriptionService;
