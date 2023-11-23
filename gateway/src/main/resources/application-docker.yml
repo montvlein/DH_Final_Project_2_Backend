@@ -10,6 +10,14 @@ spring:
     name: gateway
   cloud:
     gateway:
+      default-filters:
+        - DedupeResponseHeader=Access-Control-Allow-Credentials Access-Control-Allow-Origin
+      globalcors:
+        corsConfigurations:
+          '[/**]':
+            allowedOrigins: "*"
+            allowedMethods: "*"
+            allowedHeaders: "*"
       discovery:
         locator:
           enabled: true
@@ -49,8 +57,6 @@ logging:
   level:
     org.springframework.cloud.gateway: INFO
     reactor.netty.http.client: INFO
-
-
 
 
 #--------------- Configuration Docker ----------------------#
