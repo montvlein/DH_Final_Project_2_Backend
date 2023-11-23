@@ -30,6 +30,10 @@ spring:
           uri: lb://api-user
           predicates:
             - Path=/user/**
+        - id: api-subscription
+          uri: lb://api-subscription
+          predicates:
+            - Path=/subscription/**
 
 info:
   app:
