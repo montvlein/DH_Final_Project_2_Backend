@@ -22,19 +22,19 @@ INSERT INTO events (id, name, mini_image_url, banner_image_url, detail_image_url
 INSERT INTO events (id, name, mini_image_url, banner_image_url, detail_image_url, description_title, description, id_category, id_venue) VALUES ('8', 'Veléz vs. Belgrano', 'https://golden-ticket.s3.amazonaws.com/miniIMG/mini-8.png', 'https://golden-ticket.s3.amazonaws.com/bannerIMG/banner-8.png', 'https://golden-ticket.s3.amazonaws.com/detailIMG/detail-8.png', 'Copa Proyección: Veléz vs Belgrano', 'Comenzaron a disputarse los Cuartos de Final de la Copa Proyección Sur Finanzas, con los ocho mejores equipos de la competencia.', '3', '8');
 INSERT INTO events (id, name, mini_image_url, banner_image_url, detail_image_url, description_title, description, id_category, id_venue) VALUES ('9', 'Talleres vs San Lorenzo', 'https://golden-ticket.s3.amazonaws.com/miniIMG/mini-9.png', 'https://golden-ticket.s3.amazonaws.com/bannerIMG/banner-9.png', 'https://golden-ticket.s3.amazonaws.com/detailIMG/detail-9.png', 'Copa Proyección: Talleres vs San Lorenzo', 'Comenzaron a disputarse los Cuartos de Final de la Copa Proyección Sur Finanzas, con los ocho mejores equipos de la competencia.', '3', '8');
 
-INSERT INTO dates (id, date_time, event_id) VALUES ('1', '2024-10-10 20:00:00', '1');
-INSERT INTO dates (id, date_time, event_id) VALUES ('2', '2024-10-11 20:00:00', '1');
-INSERT INTO dates (id, date_time, event_id) VALUES ('3', '2024-12-24 20:00:00', '2');
-INSERT INTO dates (id, date_time, event_id) VALUES ('4', '2024-03-02 20:00:00', '3');
-INSERT INTO dates (id, date_time, event_id) VALUES ('5', '2024-11-16 20:00:00', '4');
-INSERT INTO dates (id, date_time, event_id) VALUES ('6', '2024-10-18 20:00:00', '5');
-INSERT INTO dates (id, date_time, event_id) VALUES ('7', '2024-10-19 20:00:00', '5');
-INSERT INTO dates (id, date_time, event_id) VALUES ('8', '2024-03-15 20:00:00', '6');
-INSERT INTO dates (id, date_time, event_id) VALUES ('9', '2024-03-16 20:00:00', '6');
-INSERT INTO dates (id, date_time, event_id) VALUES ('10', '2024-03-17 20:00:00', '6');
-INSERT INTO dates (id, date_time, event_id) VALUES ('11', '2024-01-20 20:00:00', '7');
-INSERT INTO dates (id, date_time, event_id) VALUES ('12', '2024-01-15 20:00:00', '8');
-INSERT INTO dates (id, date_time, event_id) VALUES ('13', '2024-01-15 20:00:00', '9');
+INSERT INTO dates (id, date_time, event_id, capacity) VALUES ('1', '2024-10-10 20:00:00', '1', '70000');
+INSERT INTO dates (id, date_time, event_id, capacity) VALUES ('2', '2024-10-11 20:00:00', '1', '70000');
+INSERT INTO dates (id, date_time, event_id, capacity) VALUES ('3', '2024-12-24 20:00:00', '2', '70000');
+INSERT INTO dates (id, date_time, event_id, capacity) VALUES ('4', '2024-03-02 20:00:00', '3', '70000');
+INSERT INTO dates (id, date_time, event_id, capacity) VALUES ('5', '2024-11-16 20:00:00', '4', '70000');
+INSERT INTO dates (id, date_time, event_id, capacity) VALUES ('6', '2024-10-18 20:00:00', '5', '70000');
+INSERT INTO dates (id, date_time, event_id, capacity) VALUES ('7', '2024-10-19 20:00:00', '5', '70000');
+INSERT INTO dates (id, date_time, event_id, capacity) VALUES ('8', '2024-03-15 20:00:00', '6', '70000');
+INSERT INTO dates (id, date_time, event_id, capacity) VALUES ('9', '2024-03-16 20:00:00', '6', '70000');
+INSERT INTO dates (id, date_time, event_id, capacity) VALUES ('10', '2024-03-17 20:00:00', '6', '70000');
+INSERT INTO dates (id, date_time, event_id, capacity) VALUES ('11', '2024-01-20 20:00:00', '7', '70000');
+INSERT INTO dates (id, date_time, event_id, capacity) VALUES ('12', '2024-01-15 20:00:00', '8', '70000');
+INSERT INTO dates (id, date_time, event_id, capacity) VALUES ('13', '2024-01-15 20:00:00', '9', '70000');
 
 INSERT INTO ticket_types (id, name, Price, stock, date_time_id, url_image) VALUES ('1', 'Campo Trasero', '10000', '20000', '1', 'https://pbs.twimg.com/media/DtfwYtlWwAAnUfi?format=jpg&name=900x900');
 INSERT INTO ticket_types (id, name, Price, stock, date_time_id, url_image) VALUES ('2', 'Campo Delantero', '20000', '30000', '1', 'https://pbs.twimg.com/media/DtfwYtlWwAAnUfi?format=jpg&name=900x900');

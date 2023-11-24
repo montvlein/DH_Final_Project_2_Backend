@@ -21,7 +21,7 @@ public class TicketDTO {
     private TicketTypeDto ticketType;
     private TicketEventDTO event;
     private int idUser;
-    private int amount;
+    private int amount = 1;
 
 }
 
