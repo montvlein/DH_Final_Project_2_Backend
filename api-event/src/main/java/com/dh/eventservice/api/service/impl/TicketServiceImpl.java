@@ -1,8 +1,10 @@
 package com.dh.eventservice.api.service.impl;
 
+import com.dh.eventservice.api.Exceptions.BadRequestException;
 import com.dh.eventservice.api.Exceptions.ResourceNotFoundExceptions;
 import com.dh.eventservice.api.config.ModelMapperConfig;
 import com.dh.eventservice.api.service.TicketService;
+import com.dh.eventservice.api.service.TicketTypeService;
 import com.dh.eventservice.domain.DTO.TicketDTO;
 import com.dh.eventservice.domain.DTO.TicketTypeDto;
 import com.dh.eventservice.domain.model.Ticket;
@@ -26,7 +28,8 @@ public class TicketServiceImpl implements TicketService {
 
     @Autowired
     private TicketRepository ticketRepository;
-
+    @Autowired
+    private TicketTypeService ticketTypeService;
     @Autowired
     private ModelMapperConfig mapper;
 
@@ -52,10 +55,25 @@ public class TicketServiceImpl implements TicketService {
     }
 
     @Override
-    public TicketDTO save(TicketDTO ticketDTO) {
+    public TicketDTO save(TicketDTO ticketDTO) throws ResourceNotFoundExceptions, BadRequestException {
         Ticket ticket = mapper.getModelMapper().map(ticketDTO, Ticket.class);
+
+        TicketTypeDto ticketType = ticketTypeService.findById(ticket.getTicketType().getId());
+
+        Integer stock = ticketType.getStock();
+        if (stock > 0) {
+            ticketType.setStock(stock-1);
+            ticketTypeService.update(ticketType);
+        }
+        else {
+            throw new BadRequestException("No hay suficinetes lugares libres");
+        }
+
+        TicketDTO ticketSaved = mapper.getModelMapper().map(ticketRepository.save(ticket), TicketDTO.class);
+
         logger.info("Se guardó el ticket: {}", ticket);
-        return mapper.getModelMapper().map(ticketRepository.save(ticket), TicketDTO.class);
+
+        return ticketSaved;
     }
 
     @Override

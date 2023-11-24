@@ -1,5 +1,6 @@
 package com.dh.eventservice.api.controller;
 
+import com.dh.eventservice.api.Exceptions.BadRequestException;
 import com.dh.eventservice.api.Exceptions.ResourceNotFoundExceptions;
 import com.dh.eventservice.api.service.CategoryService;
 import com.dh.eventservice.api.service.TicketService;
@@ -23,7 +24,7 @@ public class TicketController {
 
     //Registrar Ticket
     @PostMapping
-    public ResponseEntity<?> addTicket(@RequestBody TicketDTO ticketDTO) {
+    public ResponseEntity<?> addTicket(@RequestBody TicketDTO ticketDTO) throws BadRequestException, ResourceNotFoundExceptions {
         ticketService.save(ticketDTO);
         return ResponseEntity.ok(HttpStatus.CREATED);
     }

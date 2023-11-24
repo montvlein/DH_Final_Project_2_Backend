@@ -1,5 +1,6 @@
 package com.dh.eventservice.api.service;
 
+import com.dh.eventservice.api.Exceptions.BadRequestException;
 import com.dh.eventservice.api.Exceptions.ResourceNotFoundExceptions;
 import com.dh.eventservice.domain.DTO.TicketDTO;
 
@@ -13,7 +14,7 @@ public interface TicketService {
 
     List<TicketDTO> getAllTickets();
 
-    TicketDTO save(TicketDTO ticketDTO);
+    TicketDTO save(TicketDTO ticketDTO) throws ResourceNotFoundExceptions, BadRequestException;
 
     void delete(Integer idTicket) throws ResourceNotFoundExceptions;
 
