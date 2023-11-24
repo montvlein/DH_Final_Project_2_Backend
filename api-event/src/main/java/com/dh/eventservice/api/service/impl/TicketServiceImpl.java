@@ -57,23 +57,32 @@ public class TicketServiceImpl implements TicketService {
     @Override
     public TicketDTO save(TicketDTO ticketDTO) throws ResourceNotFoundExceptions, BadRequestException {
         Ticket ticket = mapper.getModelMapper().map(ticketDTO, Ticket.class);
-
+        System.out.println(ticketDTO);
+        System.out.println(ticket);
         TicketTypeDto ticketType = ticketTypeService.findById(ticket.getTicketType().getId());
 
+        Ticket ticketSaved = null;
+
+        int amount = ticketDTO.getAmount();
+
         Integer stock = ticketType.getStock();
-        if (stock > 0) {
-            ticketType.setStock(stock-1);
+
+        if (stock >= amount) {
+            ticketType.setStock(stock-amount);
             ticketTypeService.update(ticketType);
         }
         else {
-            throw new BadRequestException("No hay suficinetes lugares libres");
+            throw new BadRequestException("No hay suficientes lugares libres");
         }
 
-        TicketDTO ticketSaved = mapper.getModelMapper().map(ticketRepository.save(ticket), TicketDTO.class);
+        for (int i = 0; i < amount; i++) {
+            ticket = mapper.getModelMapper().map(ticketDTO, Ticket.class);
+            ticketSaved =  ticketRepository.save(ticket);
+        }
 
         logger.info("Se guardó el ticket: {}", ticket);
 
-        return ticketSaved;
+        return mapper.getModelMapper().map(ticketSaved, TicketDTO.class);
     }
 
     @Override
