@@ -2,15 +2,13 @@ package com.dh.eventservice.api.service.impl;
 
 import com.dh.eventservice.api.Exceptions.ResourceNotFoundExceptions;
 import com.dh.eventservice.api.config.ModelMapperConfig;
+import com.dh.eventservice.api.service.DateTimeService;
 import com.dh.eventservice.api.service.EventService;
 
 
 import com.dh.eventservice.domain.DTO.DateTimeDTO;
 import com.dh.eventservice.domain.DTO.EventDTO;
-import com.dh.eventservice.domain.model.Category;
-import com.dh.eventservice.domain.model.DateTime;
-import com.dh.eventservice.domain.model.Event;
-import com.dh.eventservice.domain.model.Venue;
+import com.dh.eventservice.domain.model.*;
 import com.dh.eventservice.domain.repository.CategoryRepository;
 import com.dh.eventservice.domain.repository.DateTimeRepository;
 import com.dh.eventservice.domain.repository.EventRepository;
@@ -41,6 +39,8 @@ public class EventServiceImpl implements EventService {
     @Autowired
     private DateTimeRepository dateTimeRepository;
 
+    @Autowired
+    private DateTimeService dateTimeService;
     @Autowired
     private ModelMapperConfig mapper;
 
@@ -118,6 +118,17 @@ public class EventServiceImpl implements EventService {
     @Override
     public EventDTO save(EventDTO eventDto) {
         Event event = mapper.getModelMapper().map(eventDto, Event.class);
+
+        List<DateTime> dateList = event.getDateList();
+
+        for (DateTime date : dateList) {
+            List<TicketType> ticketTypeList = date.getTicketTypeList();
+            for (TicketType ticketType : ticketTypeList) {
+                date.setCapacity(date.getCapacity() + ticketType.getStock());
+            }
+        }
+
+        event.setDateList(dateList);
         logger.info("Se guardó el evento: {}", event);
         return mapper.getModelMapper().map(eventRepository.save(event), EventDTO.class);
     }

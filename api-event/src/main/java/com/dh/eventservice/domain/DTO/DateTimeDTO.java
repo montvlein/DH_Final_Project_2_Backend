@@ -16,4 +16,6 @@ public class DateTimeDTO {
     private Integer id;
     private LocalDateTime dateTime;
     private List<TicketType> ticketTypeList;
+    private Integer capacity;
+
 }

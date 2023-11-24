@@ -26,4 +26,6 @@ public class DateTime {
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "date_time_id")
     private List<TicketType> ticketTypeList;
+    private Integer capacity = 0;
+
 }
