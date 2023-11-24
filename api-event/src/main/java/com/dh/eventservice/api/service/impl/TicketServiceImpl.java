@@ -37,7 +37,16 @@ public class TicketServiceImpl implements TicketService {
     private ObjectMapper obmapper;
     @Override
     public List<TicketDTO> getTicketsByUserId(Integer userId) {
-        return null;
+
+        List<Ticket> tickets = ticketRepository.findAllByIdUser(userId);
+        List<TicketDTO> ticketsDTO = new ArrayList<>();
+
+        for (Ticket ticket : tickets){
+            ticketsDTO.add(obmapper.convertValue(ticket, TicketDTO.class));
+        }
+        logger.info("Se listaron todos los tickets");
+
+        return ticketsDTO;
     }
 
     @Override

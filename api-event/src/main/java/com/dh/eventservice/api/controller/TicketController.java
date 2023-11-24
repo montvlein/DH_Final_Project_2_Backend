@@ -29,13 +29,20 @@ public class TicketController {
         return ResponseEntity.ok(HttpStatus.CREATED);
     }
 
+
+    //Buscar por usuario
+    @GetMapping("/user/{id}")
+    public ResponseEntity<List<TicketDTO>> listTicketsByUser(@PathVariable Integer id){
+        List<TicketDTO> listarTickets = ticketService.getTicketsByUserId(id);
+        return ResponseEntity.ok(listarTickets);
+    }
+
     //Buscar por ID
 
     @GetMapping("/{id}")
-    public TicketDTO findTicketId(@PathVariable Integer id) throws ResourceNotFoundExceptions{
+    public TicketDTO findTicketbyId(@PathVariable Integer id) throws ResourceNotFoundExceptions{
         return ticketService.findById(id);
     }
-
 //    //lista categorias por descreipcion
 //    @GetMapping("/desc/{description}")
 //    public Category getCategoryByDescription(@PathVariable String description) {
