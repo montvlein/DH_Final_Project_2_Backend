@@ -1,6 +1,7 @@
 FROM openjdk:17-jdk-alpine
 ARG JAR_FILE=target/*.jar
 COPY ${JAR_FILE} app.jar
+COPY keystore.p12 .
 ENTRYPOINT ["java","-Dspring.profiles.active=docker","-jar","/app.jar"]
 
 

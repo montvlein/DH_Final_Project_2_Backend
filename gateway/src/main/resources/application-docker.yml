@@ -2,7 +2,13 @@
 
 # Server configuration
 server:
-  port: ${PORT:${SERVER_PORT:8080}}
+  ssl:
+    key-store: keystore.p12
+    key-store-password: goldenkeys
+    key-store-type: pkcs12
+    key-alias: backend
+    key-password: goldenkeys
+  port: 443
 
 # Spring configuration
 spring:
