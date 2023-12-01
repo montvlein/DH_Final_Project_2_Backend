@@ -26,6 +26,10 @@ spring:
           uri: lb://api-subscription
           predicates:
             - Path=/subscription/**
+        - id: api-report
+          uri: lb://api-report
+          predicates:
+            - Path=/report/**
 
 info:
   app:
