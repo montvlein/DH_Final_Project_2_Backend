@@ -17,6 +17,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -86,6 +87,7 @@ public class TicketServiceImpl implements TicketService {
 
         for (int i = 0; i < amount; i++) {
             ticket = mapper.getModelMapper().map(ticketDTO, Ticket.class);
+            ticket.setPurchaseDate(LocalDate.now());
             ticketSaved =  ticketRepository.save(ticket);
         }
 

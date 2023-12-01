@@ -5,6 +5,7 @@ import lombok.Data;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import java.net.UnknownServiceException;
+import java.time.LocalDate;
 
 @Data
 @Entity
@@ -30,6 +31,8 @@ public class Ticket {
     private Event event;
 
     private int idUser;
+
+    private LocalDate purchaseDate;
 
 }
 

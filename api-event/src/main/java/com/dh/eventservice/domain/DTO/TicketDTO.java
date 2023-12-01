@@ -7,6 +7,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDate;
 import java.util.List;
 
 
@@ -22,6 +23,7 @@ public class TicketDTO {
     private TicketEventDTO event;
     private int idUser;
     private int amount = 1;
+    private LocalDate purchaseDate;
 
 }
 
