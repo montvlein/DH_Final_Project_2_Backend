@@ -84,3 +84,27 @@ INSERT INTO ticket_types (id, name, Price, stock, date_time_id, url_image) VALUE
 INSERT INTO ticket_types (id, name, Price, stock, date_time_id, url_image) VALUES ('46', 'Visitante', '35000', '20000', '13', 'https://pbs.twimg.com/media/DtfwYtlWwAAnUfi?format=jpg&name=900x900');
 INSERT INTO ticket_types (id, name, Price, stock, date_time_id, url_image) VALUES ('47', 'Campo Trasero', '50000', '20000', '11', 'https://pbs.twimg.com/media/DtfwYtlWwAAnUfi?format=jpg&name=900x900');
 INSERT INTO ticket_types (id, name, Price, stock, date_time_id, url_image) VALUES ('48', 'Campo Delantero', '100000', '30000', '11', 'https://pbs.twimg.com/media/DtfwYtlWwAAnUfi?format=jpg&name=900x900');
+
+INSERT INTO tickets (id, id_user, purchase_date, date_time_id, event_id, ticket_type_id) VALUES ('1', '1', '2023-11-01', '1', '1', '1');
+INSERT INTO tickets (id, id_user, purchase_date, date_time_id, event_id, ticket_type_id) VALUES ('2', '1', '2023-11-01', '1', '1', '1');
+INSERT INTO tickets (id, id_user, purchase_date, date_time_id, event_id, ticket_type_id) VALUES ('3', '1', '2023-11-01', '1', '1', '1');
+INSERT INTO tickets (id, id_user, purchase_date, date_time_id, event_id, ticket_type_id) VALUES ('4', '1', '2023-11-01', '1', '1', '1');
+INSERT INTO tickets (id, id_user, purchase_date, date_time_id, event_id, ticket_type_id) VALUES ('5', '1', '2023-11-02', '1', '1', '1');
+INSERT INTO tickets (id, id_user, purchase_date, date_time_id, event_id, ticket_type_id) VALUES ('6', '1', '2023-11-02', '1', '1', '1');
+INSERT INTO tickets (id, id_user, purchase_date, date_time_id, event_id, ticket_type_id) VALUES ('7', '1', '2023-11-02', '1', '1', '1');
+INSERT INTO tickets (id, id_user, purchase_date, date_time_id, event_id, ticket_type_id) VALUES ('8', '1', '2023-11-02', '1', '1', '1');
+INSERT INTO tickets (id, id_user, purchase_date, date_time_id, event_id, ticket_type_id) VALUES ('9', '1', '2023-11-04', '1', '1', '1');
+INSERT INTO tickets (id, id_user, purchase_date, date_time_id, event_id, ticket_type_id) VALUES ('10', '1', '2023-11-04', '1', '1', '1');
+INSERT INTO tickets (id, id_user, purchase_date, date_time_id, event_id, ticket_type_id) VALUES ('11', '1', '2023-11-05', '1', '1', '1');
+INSERT INTO tickets (id, id_user, purchase_date, date_time_id, event_id, ticket_type_id) VALUES ('12', '1', '2023-11-05', '1', '2', '1');
+INSERT INTO tickets (id, id_user, purchase_date, date_time_id, event_id, ticket_type_id) VALUES ('13', '2', '2023-11-07', '1', '2', '1');
+INSERT INTO tickets (id, id_user, purchase_date, date_time_id, event_id, ticket_type_id) VALUES ('14', '2', '2023-11-08', '1', '2', '1');
+INSERT INTO tickets (id, id_user, purchase_date, date_time_id, event_id, ticket_type_id) VALUES ('15', '2', '2023-11-08', '1', '2', '1');
+INSERT INTO tickets (id, id_user, purchase_date, date_time_id, event_id, ticket_type_id) VALUES ('16', '2', '2023-11-08', '1', '2', '1');
+INSERT INTO tickets (id, id_user, purchase_date, date_time_id, event_id, ticket_type_id) VALUES ('17', '2', '2023-11-08', '1', '2', '1');
+INSERT INTO tickets (id, id_user, purchase_date, date_time_id, event_id, ticket_type_id) VALUES ('18', '2', '2023-11-09', '1', '2', '1');
+INSERT INTO tickets (id, id_user, purchase_date, date_time_id, event_id, ticket_type_id) VALUES ('19', '2', '2023-11-10', '1', '3', '1');
+INSERT INTO tickets (id, id_user, purchase_date, date_time_id, event_id, ticket_type_id) VALUES ('20', '2', '2023-11-12', '1', '3', '1');
+INSERT INTO tickets (id, id_user, purchase_date, date_time_id, event_id, ticket_type_id) VALUES ('21', '2', '2023-11-12', '1', '3', '1');
+INSERT INTO tickets (id, id_user, purchase_date, date_time_id, event_id, ticket_type_id) VALUES ('22', '2', '2023-11-12', '1', '3', '1');
+INSERT INTO tickets (id, id_user, purchase_date, date_time_id, event_id, ticket_type_id) VALUES ('23', '2', '2023-11-13', '1', '3', '1');

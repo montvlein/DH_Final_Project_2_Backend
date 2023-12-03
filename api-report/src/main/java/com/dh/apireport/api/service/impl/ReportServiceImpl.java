@@ -53,7 +53,7 @@ public class ReportServiceImpl implements ReportService {
         for (TicketDTO ticket: ticketDTOList) {
             LocalDate date = ticket.getPurchaseDate();
             int i = dateList.indexOf(date);
-            if (i > 0) {
+            if (i >= 0) {
                 quantityList.set(i, quantityList.get(i) + 1);
             }
 
