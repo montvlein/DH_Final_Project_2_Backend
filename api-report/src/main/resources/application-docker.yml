@@ -3,22 +3,30 @@ server:
 spring:
   application:
     name: api-report
-  datasource:
-    driverClassName: com.mysql.cj.jdbc.Driver
-# DB EN AWS
-    url: jdbc:mysql://db.ctd.academy:3306/pi21023c01_GRUPO6
-    username: pi21023c01_GRUPO6
-    password: toXae4Pi
-  jpa:
-    hibernate.ddl-auto: create-drop
-    database-platform: org.hibernate.dialect.MySQL5Dialect
-    generate-ddl: true
-    show-sql: true
-    properties:
-      hibernate:
-        dialect: org.hibernate.dialect.MySQL5Dialect
-        hbm2ddl:
-          import_files: report-service.sql
+  cloud:
+    openfeign:
+      client:
+        config:
+          default:
+            url: https://api.goldenticket.ar
+
+
+#  datasource:
+#    driverClassName: com.mysql.cj.jdbc.Driver
+## DB EN AWS
+#    url: jdbc:mysql://db.ctd.academy:3306/pi21023c01_GRUPO6
+#    username: pi21023c01_GRUPO6
+#    password: toXae4Pi
+#  jpa:
+#    hibernate.ddl-auto: create-drop
+#    database-platform: org.hibernate.dialect.MySQL5Dialect
+#    generate-ddl: true
+#    show-sql: true
+#    properties:
+#      hibernate:
+#        dialect: org.hibernate.dialect.MySQL5Dialect
+#        hbm2ddl:
+#          import_files: report-service.sql
 
 info:
   application:
@@ -40,3 +48,4 @@ springdoc:
     path: /report/api-docs
   swagger-ui:
     path: /report/swagger
+

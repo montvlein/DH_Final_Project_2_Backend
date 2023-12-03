@@ -7,9 +7,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 
-@FeignClient(name = "api-event")
+@FeignClient(value = "api-event", name = "api-event")
 public interface TicketClient {
 
-    @GetMapping("event/ticket/event/{eventId}")
+    @GetMapping("/event/ticket/event/{eventId}")
     List<TicketDTO> listTicketsByEvent(@PathVariable Integer eventId);
 }
