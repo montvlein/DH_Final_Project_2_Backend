@@ -5,5 +5,5 @@ import java.time.LocalDate;
 import com.dh.apireport.domain.dto.ReportDTO;
 public interface ReportService {
 
-    List<ReportDTO> getSalesByEvent(Integer IdEvent, LocalDate startDate, LocalDate endDate);
+    ReportDTO getSalesByEvent(Integer IdEvent, LocalDate startDate, LocalDate endDate);
 }

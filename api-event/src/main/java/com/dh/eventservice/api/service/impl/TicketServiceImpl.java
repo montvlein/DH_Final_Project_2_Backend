@@ -51,6 +51,19 @@ public class TicketServiceImpl implements TicketService {
     }
 
     @Override
+    public List<TicketDTO> getTicketsByEventId(Integer eventId) {
+
+        List<Ticket> tickets = ticketRepository.findAllByEvent_Id(eventId);
+        List<TicketDTO> ticketsDTO = new ArrayList<>();
+
+        for (Ticket ticket : tickets){
+            ticketsDTO.add(obmapper.convertValue(ticket, TicketDTO.class));
+        }
+        logger.info("Se listaron todos los tickets");
+
+        return ticketsDTO;
+    }
+    @Override
     public List<TicketDTO> getAllTickets() {
 
         List<Ticket> tickets = ticketRepository.findAll();

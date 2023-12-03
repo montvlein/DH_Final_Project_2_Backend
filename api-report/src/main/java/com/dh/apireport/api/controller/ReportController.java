@@ -22,10 +22,10 @@ public class ReportController {
     private ReportService reportService;
 
     @GetMapping
-    public ResponseEntity<List<ReportDTO>> getSalesByEvent(@RequestParam Integer idEvent,
+    public ResponseEntity<ReportDTO> getSalesByEvent(@RequestParam Integer idEvent,
                                                            @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate start,
                                                            @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate end) {
-        List<ReportDTO> sales= reportService.getSalesByEvent(idEvent, start, end);
+        ReportDTO sales= reportService.getSalesByEvent(idEvent, start, end);
         return ResponseEntity.ok(sales);
 
     }

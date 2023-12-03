@@ -37,6 +37,13 @@ public class TicketController {
         return ResponseEntity.ok(listarTickets);
     }
 
+    //Buscar por evento
+    @GetMapping("/event/{id}")
+    public ResponseEntity<List<TicketDTO>> listTicketsByEvent(@PathVariable Integer id){
+        List<TicketDTO> listarTickets = ticketService.getTicketsByEventId(id);
+        return ResponseEntity.ok(listarTickets);
+    }
+
     //Buscar por ID
 
     @GetMapping("/{id}")

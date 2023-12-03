@@ -11,6 +11,7 @@ import java.util.Set;
 public interface TicketService {
 
     List<TicketDTO> getTicketsByUserId(Integer userId);
+    List<TicketDTO> getTicketsByEventId(Integer eventId);
 
     List<TicketDTO> getAllTickets();
 

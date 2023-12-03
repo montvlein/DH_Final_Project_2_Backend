@@ -8,4 +8,5 @@ import java.util.List;
 public interface TicketRepository extends JpaRepository<Ticket, Integer>{
 
     List<Ticket> findAllByIdUser(int idUser);
+    List<Ticket> findAllByEvent_Id(int idEvent);
 }

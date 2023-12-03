@@ -88,6 +88,12 @@
             <version>1.2.17</version>
         </dependency>
 
+
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
+        </dependency>
+
         <!--		<dependency>-->
         <!--			<groupId>org.springframework.cloud</groupId>-->
         <!--			<artifactId>spring-cloud-starter-config</artifactId>-->
